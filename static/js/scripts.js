@@ -61,3 +61,11 @@
   });
 
 })(jQuery); // End of use strict
+function myFunction() {
+  var x = document.getElementById("navbarResponsive");
+  if (x.className === "collapse navbar-collapse") {
+    x.className += "collapse navbar-collapse responsive";
+  } else {
+    x.className = "collapse navbar-collapse";
+  }
+}
