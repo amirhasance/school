@@ -4,4 +4,5 @@ from django.shortcuts import render
 
 
 def go_to_class(request , template_name = 'go_to_class'):
+    pass
     
