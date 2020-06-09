@@ -7,7 +7,7 @@ class Teacher(User):
     
     
     def __str__(self):
-        return 
+        return self.username
     
     
     pass
@@ -15,6 +15,9 @@ class Teacher(User):
 
 class Student(User):
     image = models.ImageField(upload_to='Students')
+    
+    def __str__(self):
+        return self.username
     pass
 
 
