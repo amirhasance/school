@@ -10167,29 +10167,28 @@ header.masthead h1 {
 .collapse navbar-collapse .nav-link js-scroll-trigger {
   display: none;
 }
+.collapse navbar-collapse .nav-link js-scroll-trigger {
+  display: none !important;
+}
 
 @media screen and (max-width: 600px) {
-  .collapse navbar-collapse a {display: none;}
+  .collapse navbar-collapse a {display: none !important;
   .collapse navbar-collapse a.js-scroll-trigger {
-    float: right;
-    display: block;
+    float: right !important;
+    display: block !important;
   }
 }
-!important
-
 
 @media screen and (max-width: 600px) {
-  .collapse navbar-collapse .collapse navbar-collapse responsive {position: relative;}
+  .collapse navbar-collapse .collapse navbar-collapse responsive {position: relative !important;}
   .collapse navbar-collapse .collapse navbar-collapse responsive .nav-link js-scroll-trigger {
-    position: absolute;
-    right: 0;
-    top: 0;
+    position: absolute !important;
+    right: 0 !important;
+    top: 0 !important;
   }
-!important
   .collapse navbar-collapse .collapse navbar-collapse responsive a {
-    float: none;
-    display: block;
-    text-align: left;
+    float: none !important;
+    display: block !important;
+    text-align: left !important;
   }
 }
-!important
