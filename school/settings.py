@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'exam',
     'klass',
     'school_home',
+    'chat',
     
 ]
 
