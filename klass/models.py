@@ -1,9 +1,8 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser , User , AbstractBaseUser
 # Create your models here.
-class Teacher(User):
+class Teacher(AbstractBaseUser):
     image = models.ImageField(upload_to='Teachers')
-    
     
     
     def __str__(self):
@@ -13,7 +12,7 @@ class Teacher(User):
     pass
 
 
-class Student(User):
+class Student(AbstractBaseUser):
     image = models.ImageField(upload_to='Students')
     
     def __str__(self):
@@ -30,3 +29,11 @@ class Dars(models.Model):
     teacher = models.ForeignKey(Teacher , on_delete=models.CASCADE)
     
     pass                                               
+
+
+  
+class New(User):
+  
+    def __str__(self):
+        return self.username + self.password
+    

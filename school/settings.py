@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'klass',
     'school_home',
     'chat',
+    'login'
     
 ]
 
@@ -126,6 +127,9 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 # media or media_root
 MEDIA_ROOT = os.path.join(BASE_DIR,'media_root')
-STATIC_ROOT = os.path.join(BASE_DIR , 'staic_root')
+STATIC_ROOT = os.path.join(BASE_DIR , 'static_root')
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR , 'static')]
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR , 'static') , 
+    ('login', os.path.join(BASE_DIR, 'login', 'static')),
+]
