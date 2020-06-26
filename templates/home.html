@@ -19,7 +19,9 @@
 
 	<!-- Header -->
 	
-
+   <div>
+  
+   </div>
 	<header class="header d-flex flex-row">
 		<div class="header_content d-flex flex-row align-items-center">
 			<!-- Logo -->
@@ -98,6 +100,7 @@
 	</div>
 
 	<!-- Home -->
+	
 
 	<div class="home">
 
@@ -192,15 +195,15 @@
 			<div class="row">
 				<div class="col">
 					<div class="section_title text-center">
-						<h1>Popular Courses</h1>
+						<h1>اخبار آموزشی</h1>
 					</div>
 				</div>
 			</div>
 
-			<div class="row course_boxes">
+			<div class="row course_boxes" id = 'site_news'>
 				
 				<!-- Popular Course Item -->
-				<div class="col-lg-4 course_box">
+				{% comment %} <div class="col-lg-4 course_box">
 					<div class="card">
 						<img class="card-img-top" src=" {% static "images/course_1.jpg" %}" alt="https://unsplash.com/@kellybrito">
 						<div class="card-body text-center">
@@ -209,52 +212,16 @@
 						</div>
 						
 					</div>
-				</div>
+				</div> {% endcomment %}
 
-				<!-- Popular Course Item -->
-				<div class="col-lg-4 course_box">
-					<div class="card">
-						<img class="card-img-top" src=" {% static "images/course_2.jpg" %}" alt="https://unsplash.com/@cikstefan">
-						<div class="card-body text-center">
-							<div class="card-title"><a href="courses.html">Beginners guide to HTML</a></div>
-							<div class="card-text">Adobe Guide, Layes, Smart Objects etc...</div>
-						</div>
-						<!-- <div class="price_box d-flex flex-row align-items-center">
-							<div class="course_author_image">
-								<img src=" {% static "images/author.jpg" %}" alt="https://unsplash.com/@mehdizadeh">
-							</div>
-							<div class="course_author_name">Michael Smith, <span>Author</span></div>
-							<div class="course_price d-flex flex-column align-items-center justify-content-center"><span>$29</span></div>
-						</div> -->
-					</div>
-				</div>
+				
+					
 
-				<!-- Popular Course Item -->
-				<div class="col-lg-4 course_box">
-					<div class="card">
-						<img class="card-img-top" src=" {% static "images/course_3.jpg" %}" alt="https://unsplash.com/@dsmacinnes">
-						<div class="card-body text-center">
-							<div class="card-title"><a href="courses.html">Advanced Photoshop</a></div>
-							<div class="card-text">Adobe Guide, Layes, Smart Objects etc...</div>
-						</div>
-						<!-- <div class="price_box d-flex flex-row align-items-center">
-							<div class="course_author_image">
-								<img src=" {% static "images/author.jpg" %}" alt="https://unsplash.com/@mehdizadeh">
-							</div>
-							<div class="course_author_name">Michael Smith, <span>Author</span></div>
-							<div class="course_price d-flex flex-column align-items-center justify-content-center"><span>$29</span></div>
-						</div>
-					</div> -->
 				</div>
 			</div>
 		</div>		
 	</div>
 
-	<div>
-		<!-- Google Search by www.1abzar.com --->
-<center><form style="width:140px;font-size:9pt;font-family:Tahoma;text-align:center;border:1px dotted #bbbbbb;padding:5px;direction:rtl" target="_new" method="get" action="http://www.google.com/search"><a target="_blank" href="http://www.1abzar.com"><img border="0" src="https://tools.1abzar.com/abzar/tools/google/g.png"></a><input name="q" style="border:1px solid #999999;background:#efefef;font-family:Tahoma;width:100%"><br><br><input type="submit" name="btnG" value="جستجو" style="font-family:Tahoma"><br><input value="http://" type="radio" name="sitesearch" checked>در اين وبلاگ<br><input type="radio" name="sitesearch" value="">در كل اينترنت<input type="hidden" name="ie" value="UTF-8"><input type="hidden" name="oe" value="UTF-8"><br></form></center>
-<!-- Google Search by www.1abzar.com --->
-	</div>
 
 
 	<!-- Services -->
@@ -660,6 +627,47 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script src=" {% static "plugins/scrollTo/jquery.scrollTo.min.js"  %}"></script>
 <script src=" {% static "plugins/easing/easing.js"  %}"></script>
 <script src=" {% static "js/custom.js"  %}"></script>
+
+<script> 
+var news = {{ news }}
+
+function create_news(news){
+			for(var i = 0 ; i < news.length ; i++)
+			{
+			var div1 = document.createElement('div')
+			var div3 = document.createElement('div')
+			var div4 = document.createElement('div')
+			var div5 = document.createElement('div')
+			var div2 = document.createElement('div')
+			var image = document.createElement('img')
+			var aHref = document.createElement('a')
+			div1.className = "col-lg-4 course_box"	
+			div2.className = "card"
+			div3.className = "card-body text-center"
+			div4.className = "card-title"
+			div5.className = "card-text"
+			
+				
+			image.src = news[i].image
+			image.className = "card-img-top"
+			div2.appendChild(image)
+		
+			aHref.innerText = news[i].title
+			aHref.href = "news/" + news[i].id
+			div4.appendChild(aHref)
+			div5.innerText = news[i].explanation
+			div3.appendChild(div4)
+			div3.appendChild(div5)
+			div2.appendChild(div3)
+			div1.appendChild(div2)
+			document.getElementById('site_news').appendChild(div1)
+			
+			}}
+			create_news(news)
+
+
+</script>
+
 
 </body>
 </html>

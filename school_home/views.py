@@ -1,10 +1,20 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .serializers import serialized_news
+from django.utils.safestring import mark_safe
+import json
 # Create your views here.
 
 def home(request , template_name = 'home.html'):
     
-    return render(request , template_name )
+    data_to_send = {}
+    
+    news = serialized_news()
+    data_to_send['news'] = mark_safe(json.dumps(news.data))
+    
+    
+    
+    return render(request , template_name , data_to_send )
 
 
 

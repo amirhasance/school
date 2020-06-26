@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'klass',
     'school_home',
     'chat',
-    'login'
+    'login',
+    'news',
     
 ]
 
