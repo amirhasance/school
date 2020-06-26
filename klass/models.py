@@ -1,23 +1,28 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser , User , AbstractBaseUser
+from django.contrib.auth.models import  User 
 # Create your models here.
-class Teacher(AbstractBaseUser):
-    image = models.ImageField(upload_to='Teachers')
+
+class Teacher(models.Model):
     
-    
-    def __str__(self):
-        return self.username
-    
-    
-    pass
+    user = models.OneToOneField(User , on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='teachers')
 
 
-class Student(AbstractBaseUser):
-    image = models.ImageField(upload_to='Students')
-    
     def __str__(self):
-        return self.username
-    pass
+        return self.user
+    
+    
+
+class Student(models.Model):
+
+    user = models.OneToOneField(User , on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='students')
+    
+    
+
+    def __str__(self):
+        return self.user.username
+    
 
 
 class Dars(models.Model):
@@ -28,12 +33,7 @@ class Dars(models.Model):
     students = models.ManyToManyField(Student)
     teacher = models.ForeignKey(Teacher , on_delete=models.CASCADE)
     
-    pass                                               
-
-
-  
-class New(User):
-  
     def __str__(self):
-        return self.username + self.password
-    
+        return self.name
+                                                 
+

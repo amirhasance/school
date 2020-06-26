@@ -50,7 +50,7 @@ class Answer(models.Model):
     
     question = models.ForeignKey(Question , on_delete=models.CASCADE , null =False , )
     
-    image = models.ImageField(upload_to='Answers')
+    image = models.ImageField(upload_to='answers')
     
     selected_Choice = models.CharField( max_length = 500 , null=True , blank=True)
     

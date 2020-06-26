@@ -4,7 +4,7 @@ from .views import   home
 app_name = "shool_home"
 
 urlpatterns = [
-    path('' , home),
+    path('' , home , name='home'),
     path('login/' , include('login.urls' , namespace='login') , name='login'),
 ]
 
