@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'chat',
     'login',
     'news',
+    'rest_framework'
     
 ]
 
@@ -134,6 +135,7 @@ STATIC_ROOT = os.path.join(BASE_DIR , 'static_root')
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR , 'static') , 
-    ('login', os.path.join(BASE_DIR, 'login', 'static')),
+    ('login', os.path.join(BASE_DIR, 'static')),
+    ('news' , os.path.join(BASE_DIR  , 'static'))
 ]
 

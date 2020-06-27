@@ -6,6 +6,7 @@ app_name = "shool_home"
 urlpatterns = [
     path('' , home , name='home'),
     path('login/' , include('login.urls' , namespace='login') , name='login'),
+    path('news/' , include('news.urls' ,namespace='news') , name = 'news'),
 ]
 
 

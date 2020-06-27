@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Course</title>
+<title>{{ school_name }}</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Course Project">
@@ -627,43 +627,11 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script src=" {% static "plugins/scrollTo/jquery.scrollTo.min.js"  %}"></script>
 <script src=" {% static "plugins/easing/easing.js"  %}"></script>
 <script src=" {% static "js/custom.js"  %}"></script>
+<script src= " {% static 'js/my_function.js' %}"> </script>
 
 <script> 
 var news = {{ news }}
-
-function create_news(news){
-			for(var i = 0 ; i < news.length ; i++)
-			{
-			var div1 = document.createElement('div')
-			var div3 = document.createElement('div')
-			var div4 = document.createElement('div')
-			var div5 = document.createElement('div')
-			var div2 = document.createElement('div')
-			var image = document.createElement('img')
-			var aHref = document.createElement('a')
-			div1.className = "col-lg-4 course_box"	
-			div2.className = "card"
-			div3.className = "card-body text-center"
-			div4.className = "card-title"
-			div5.className = "card-text"
-			
-				
-			image.src = news[i].image
-			image.className = "card-img-top"
-			div2.appendChild(image)
-		
-			aHref.innerText = news[i].title
-			aHref.href = "news/" + news[i].id
-			div4.appendChild(aHref)
-			div5.innerText = news[i].explanation
-			div3.appendChild(div4)
-			div3.appendChild(div5)
-			div2.appendChild(div3)
-			div1.appendChild(div2)
-			document.getElementById('site_news').appendChild(div1)
-			
-			}}
-			create_news(news)
+create_news(news)
 
 
 </script>

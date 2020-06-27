@@ -10,7 +10,9 @@ def site_login(request ,template_name='login/login.html' ):
    
    form = login_Form(request.POST or None)
    if request.user.is_authenticated :
-       return redirect('/../profile/')
+       logout(request)
+    #    return redirect('/../profile/')
+      
 
    
    if request.method == 'POST':
