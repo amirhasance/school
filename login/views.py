@@ -10,7 +10,7 @@ def site_login(request ,template_name='login/login.html' ):
    
    form = login_Form(request.POST or None)
    if request.user.is_authenticated :
-       logout(request)
+       return redirect('/profile/my')
     #    return redirect('/../profile/')
       
 
@@ -22,11 +22,16 @@ def site_login(request ,template_name='login/login.html' ):
            
            user = authenticate(request=request , username =form.cleaned_data.get('username'),password = form.cleaned_data.get('password')  )
            login(request , user)
-           return HttpResponse('from is valid')
+           return redirect('../profile/my')
        else :
             return HttpResponse('form is not valid')
    else :
         return render(request , template_name , {'form' : form})
+
+
+def log_out(request):
+    logout(request)
+    return redirect('/')
       
 def site_logout(request , template_name = 'login/logout.html'):
     if request.user.is_authenticated:
@@ -54,4 +59,5 @@ def alogin(request , template_name='login/alogin.html'):
             return HttpResponse('form is not valid')
    else :
         return render(request , template_name , {'form' : form})
-      
+    
+

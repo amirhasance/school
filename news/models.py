@@ -1,12 +1,17 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.exceptions import ValidationError
+def news_image_size(value):
+    limit = 200 * 1024 
+    if value.size > limit :
+        raise ValidationError (f"Image size is Bigger than {limit}")
 # Create your models here.
 class News(models.Model):
 
     title = models.CharField(max_length = 300)
     explanation = models.CharField(max_length = 500)
     time = models.DateTimeField(auto_now=True)
-    image = models.ImageField(upload_to='news')
+    image = models.ImageField(upload_to='news'  , validators=[news_image_size])
 
 
     def __str__(self):

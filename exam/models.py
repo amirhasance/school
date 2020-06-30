@@ -1,8 +1,9 @@
 from django.db import models
-
+from django.core.exceptions import ValidationError
 # Create your models here.
 from django.utils.translation import gettext_lazy as _
 from klass.models import Student , Teacher , Dars
+from school_home.views import file_size
 
 #TODO  : Try pip install django_cleanup , https://stackoverflow.com/questions/16041232/django-delete-filefield
 class Exam(models.Model):
@@ -50,7 +51,7 @@ class Answer(models.Model):
     
     question = models.ForeignKey(Question , on_delete=models.CASCADE , null =False , )
     
-    image = models.ImageField(upload_to='answers')
+    image = models.ImageField(upload_to='answers' , validators=[file_size , ])
     
     selected_Choice = models.CharField( max_length = 500 , null=True , blank=True)
     

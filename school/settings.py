@@ -43,7 +43,9 @@ INSTALLED_APPS = [
     'chat',
     'login',
     'news',
-    'rest_framework'
+    'rest_framework',
+    'my_profile',
+    'online_users'
     
 ]
 
@@ -55,6 +57,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'online_users.middleware.OnlineNowMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'school.urls'
@@ -139,3 +143,5 @@ STATICFILES_DIRS = [
     ('news' , os.path.join(BASE_DIR  , 'static'))
 ]
 
+LOGIN_REDIRECT_URL = '/profile/my'
+LOGIN_URL = '/login/'

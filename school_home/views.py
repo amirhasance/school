@@ -1,8 +1,9 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse , JsonResponse
 from .serializers import serialized_news
 from django.utils.safestring import mark_safe
 import json
+from django.core.exceptions import ValidationError
 # Create your views here.
 
 def home(request , template_name = 'home.html'):
@@ -11,13 +12,25 @@ def home(request , template_name = 'home.html'):
     
     news = serialized_news()
     data_to_send['news'] = mark_safe(json.dumps(news.data))
-    
-    
+    data_to_send['school_name'] = school_data["school_name"]
+    data_to_send['telephone'] = school_data['telephone']
     
     return render(request , template_name , data_to_send )
 
 
 
+def ajax_comment(request):
+    comment = str(request.GET.get('comment'))
+    print(comment)
+    if len(comment) > 25:
+        data = {
+            'is_ok' : True
+        }
+    else :
+        data = {
+            'is_ok' : False
+        }
+    return JsonResponse(data)
 
 
 def get_client_ip(request):
@@ -42,3 +55,17 @@ def grecaptcha_verify(request):
     # verify_rs = requests.get(url, params=params, verify=True)
     # verify_rs = verify_rs.json()
     # return verify_rs.get("success", False)
+
+
+
+def file_size(value):
+    limit = 1 * 1024 * 1024
+    if value.size > limit :
+        raise ValidationError ("File size is too much and must be less than 20MG")
+
+
+school_data = {
+    "school_name" : "  نخبگان آمل" ,
+    "telephone" : "011 442 42 921",
+
+}

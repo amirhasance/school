@@ -16,10 +16,30 @@
 
   <!-- Custom styles for this template -->
   <link href="{% static 'news/css/blog-post.css' %}" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
 
 </head>
 
 <body>
+ <script>
+    $("#comment").change(function () {
+      var comment = $(this).val();
+
+      $.ajax({
+        url: '/ajax/',
+        data: {
+          'comment': comment
+        },
+        dataType: 'json',
+        success: function (data) {
+          if (data.is_ok) {
+            alert("comment was ok");
+          }
+        }
+      });
+
+    });
+  </script>
 
   <!-- Navigation -->
   <div class='container'>
@@ -63,10 +83,10 @@
         <h1 class="mt-4">{{new.title}}</h1>
 
         <!-- Author -->
-        <p class="lead">
+        {% comment %} <p class="lead">
           by
           <a href="#">Start Bootstrap</a>
-        </p>
+        </p> {% endcomment %}
 
         <hr>
 
@@ -106,7 +126,7 @@
           <div class="card-body">
             <form method='get' action= '/comments/'>
               <div class="form-group">
-                <textarea class="form-control" rows="3" name = 'comment'></textarea>
+                <textarea class="form-control" rows="3" name = 'comment' id='comment'></textarea>
               </div>
               <button type="submit" class="btn btn-primary">Submit</button>
             </form>
@@ -211,6 +231,30 @@
  <script>
     var comment = {{comments}}
  </script>
+  <script>
+    $("#comment").change(function () {
+      var comment = $(this).val();
+
+      $.ajax({
+        url: '/ajax/',
+        data: {
+          'comment': comment
+        },
+        dataType: 'json',
+        success: function (data) {
+          if (data.is_ok) {
+            alert("comment was ok");
+          }
+        }
+      });
+
+    });
+  </script>
+  <script>
+    $("#comment").change(function () {
+      console.log( $(this).val() );
+    });
+  </script>
 </body>
 
 </html>
