@@ -19,6 +19,7 @@ class News(models.Model):
     
     class Meta:
         ordering = ('-time',)   
+        verbose_name_plural = "اخبار مدرسه"
     
 def last_3_news():
     return News.objects.all()[:3]

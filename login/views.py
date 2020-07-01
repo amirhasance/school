@@ -17,8 +17,9 @@ def site_login(request ,template_name='login/login.html' ):
    
    if request.method == 'POST':
        if form.is_valid() : 
-        #    print(form.cleaned_data.get('username'))
-        #    print(form.cleaned_data.get('password'))
+           print(form.cleaned_data.get('username'))
+           print(form.cleaned_data.get('password'))
+          
            
            user = authenticate(request=request , username =form.cleaned_data.get('username'),password = form.cleaned_data.get('password')  )
            login(request , user)

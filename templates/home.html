@@ -50,7 +50,7 @@
 						{% if user.is_authenticated %}
 						<li class="main_nav_item"><a href="/logout">خروج</a></li>
 						{% else %}
-						<li class="main_nav_item"><a href="/login">ورود</a></li>
+						<li class="main_nav_item"><a href="/profile/my">ورود</a></li>
 						{% endif %}
 						
 					</ul>
@@ -83,9 +83,9 @@
 				<ul class="menu_list menu_mm">
 					<li class="menu_item menu_mm"><a href="#">خانه</a></li>
 					{% if user.is_authenticated %}
-						<li class="menu_item menu_mm"><a href="/logout">خروج</a></li>
+						<li class="menu_item menu_mm"><a href="/logout/">خروج</a></li>
 						{% else %}
-						<li class="menu_item menu_mm"><a href="/login">ورود</a></li>
+						<li class="menu_item menu_mm"><a href="/login/">ورود</a></li>
 						{% endif %}
 						
 					<li class="menu_item menu_mm"><a href="#">اخبار مدرسه</a></li>
@@ -197,12 +197,9 @@
 							<div class="hero_box_content">
 								<h2 class="hero_box_title">دانش آموزان</h2>
 								<center>
-								{% if user.is_authenticated %}
-							       	<a href="/logout" ><h3 style="color:blanchedalmond;">خروج</h3></a>
-								{% else %}
-									<a href="/login"  class="hero_box_link" style="font-size:24px;">ورود</a>
+								
+									<a href="/profile/my/"  class="hero_box_link" style="font-size:24px;">ورود</a>
 
-								{% endif %}
 								</center>
 							</div>
 						</div>
