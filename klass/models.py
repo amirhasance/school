@@ -59,8 +59,24 @@ class Dars(models.Model):
 
 
 class Tamrin(models.Model):
+
     name = models.CharField(max_length = 300)
-    dars = models.ForeignKey(Dars)
+
+    dars = models.ForeignKey(Dars , on_delete=models.CASCADE)
+
+    file = models.FileField(upload_to=f'tamrin/{dars.name}')
+
+    time_created = models.DateTimeField(auto_now_add=True)
+
+    time_expire = models.DateTimeField()
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        ordering = ('time_created',)
+        verbose_name_plural = 'تمارین   '
     
+
                                                  
 

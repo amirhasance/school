@@ -11,6 +11,8 @@
 		
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href= "{% static  "my_profile/css/style.css" %}">
+		<link rel="stylesheet" href= "{% static  "my_profile/this.css" %}">
+
   </head>
   <body>
 		
@@ -44,7 +46,7 @@
               <a href="#"> یک درس دیگر اضافه کن <span class="fa fa-plus mr-3"></span> </a>
 	          </li>
 	          <li>
-              <a href="#"> خروج <span class="fa fa-sign-out mr-3"></span></a>
+              <a href="/"> خروج <span class="fa fa-sign-out mr-3"></span></a>
 	          </li>
 </div>
 	        </ul>
@@ -75,15 +77,28 @@
 
         <!-- Page Content  -->
       <div id="content" class="p-4 p-md-5 pt-5">
-        <h2 class="mb-4">Sidebar #04</h2>
+
+	  <div class="container">
+  <div class="col">
+    <div class="row-6 col-lg-6 background">
+      <p class="p-style">text</p>
+    </div>
+    <div class="row-6 col-lg-6 background2">
+      <p class="p-style">text</p>
+    </div>
+  </div>
+</div>
+	
+	  		
+        {% comment %} <h2 class="mb-4">Sidebar #04</h2> {% endcomment %}
         {% comment %} <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> {% endcomment %}
       </div>
 		</div>
 
-    <script src="{% static  "my_profilejs/jquery.min.js" %}"></script>
-    <script src="{% static  "my_profilejs/popper.js" %}"></script>
-    <script src="{% static  "my_profilejs/bootstrap.min.js" %}"></script>
-    <script src="{% static  "my_profilejs/main.js" %}"></script>
+    <script src="{% static  "my_profile/js/jquery.min.js" %}"></script>
+    <script src="{% static  "my_profile/js/popper.js" %}"></script>
+    <script src="{% static  "my_profile/js/bootstrap.min.js" %}"></script>
+    <script src="{% static  "my_profile/js/main.js" %}"></script>
   </body>
 </html>

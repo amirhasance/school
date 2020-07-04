@@ -7,14 +7,14 @@ from django.core.exceptions import ValidationError
 # Create your views here.
 
 def home(request , template_name = 'home.html'):
-    
+
     data_to_send = {}
-    
+
     news = serialized_news()
     data_to_send['news'] = mark_safe(json.dumps(news.data))
     data_to_send['school_name'] = school_data["school_name"]
     data_to_send['telephone'] = school_data['telephone']
-    
+
     return render(request , template_name , data_to_send )
 
 
