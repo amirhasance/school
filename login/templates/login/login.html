@@ -1,99 +1,117 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<title>Login V15</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href=" {% static "login/images/icons/favicon.ico/"  %}">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href=" {% static "login/vendor/bootstrap/css/bootstrap.min.css" %}">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href=" {% static "login/fonts/font-awesome-4.7.0/css/font-awesome.min.css" %}">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href=" {% static "login/fonts/Linearicons-Free-v1.0.0/icon-font.min.css" %}">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href=" {% static "login/vendor/animate/animate.css" %}">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href=" {% static "login/vendor/css-hamburgers/hamburgers.min.css" %}">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href=" {% static "login/vendor/animsition/css/animsition.min.css" %}">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href=" {% static "login/vendor/select2/select2.min.css" %}">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href=" {% static "login/vendor/daterangepicker/daterangepicker.css" %}">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href=" {% static "login/css/util.css" %}">
-	<link rel="stylesheet" type="text/css" href=" {% static "login/css/main.css" %}">
-<!--===============================================================================================-->
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Coming Soon - Start Bootstrap Theme</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="  {% static "login/vendor/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <link href="  {% static "login/vendor/fontawesome-free/css/all.min.css" %}" rel="stylesheet" type="text/css">
+ <link rel="stylesheet" type="text/css" href=" {% static "pfont.css"  %}">
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+ <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <!-- Custom styles for this template -->
+  <link href=" {% static "login/css/coming-soon.min.css" %}"  rel="stylesheet">
+
 </head>
+
 <body>
 
- {% csrf_token %}
-	<div class="limiter">
-		<div class="container-login100">
-			<div class="wrap-login100">
-				<div class="login100-form-title" style="background-image: url({% static "login/images/bg-01.jpg" %}); >
-					<span class="login100-form-title-1">
-						Sign In
-					</span>
-				</div>
+  <div class="overlay"></div>
+  <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+    <source src=" {% static "login/mp4/bg.mp4" %}" type="video/mp4">
+  </video>
 
-				<form class="login100-form validate-form" method='post'>
-					<div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
-						<span class="label-input100">Username</span>
-						{{form.username}}
-						<span class="focus-input100"></span>
-					</div>	
+  <div class="masthead">
+    <div class="masthead-bg"></div>
+    <div class="container h-100">
+      <div class="row h-100">
+        <div class="col-12 my-auto">
+          <div class="masthead-content text-white py-5 py-md-0">
+          <center>
+            <h1 class="mb-3" style='font-family:"byekan"'>خوش آمدید</h1>
+            
+            <p class="mb-5" style='font-family:"byekan"'> نام کاربری و پسورد  خود را وارد کنید
+            </p>
+            </center>
+           
 
-					<div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
-						<span class="label-input100">Password</span>
-						{{form.password}}
-						<span class="focus-input100"></span>
-					</div>
+             {% comment %} <div class="input-group input-group-newsletter">
+              <input type="email" class="form-control" placeholder="Enter email..." aria-label="Enter email..." aria-describedby="submit-button">
+              
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="button" id="submit-button">Notify Me!</button>
+              </div> {% endcomment %}
+              
+                 <form class="form-signin" method='post'>
+              <div class="form-label-group" style = "  align-items: right;  align-content: right">
+                <input type="username" id="inputEmail" class="form-control" placeholder="username" name='username' required autofocus>
+                
+                <center>
+                <label for="inputEmail" style='font-family:"byekan"'>نام کاربری</label>
+                </center>
+              </div>
 
-					<div class="flex-sb-m w-full p-b-30">
-						<div class="contact100-form-checkbox">
-							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-							<label class="label-checkbox100" for="ckb1">
-								Remember me
-							</label>
-						</div>
+              <div class="form-label-group">
+                <input type="password" id="inputPassword" class="form-control" placeholder="password" name='password' required>
+                
+                <center>
+                <label for="inputPassword" style='font-family:"byekan"'>رمز ورود</label>
+                </center>
+              </div>
 
-						<div>
-							<a href="#" class="txt1">
-								Forgot Password?
-							</a>
-						</div>
-					</div>
+             
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" style='font-family:"byekan"'>ورود</button>
+              <hr class="my-4">
+            </form> 
+           
 
-					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
-							Login
-						</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-	
-<!--===============================================================================================-->
-	<script src=" {% static "login/vendor/jquery/jquery-3.2.1.min.js" %}"></script>
-<!--===============================================================================================-->
-	<script src=" {% static "login/vendor/animsition/js/animsition.min.js" %}"></script>
-<!--===============================================================================================-->
-	<script src=" {% static "login/vendor/bootstrap/js/popper.js" %}"></script>
-	<script src=" {% static "login/vendor/bootstrap/js/bootstrap.min.js" %}"></script>
-<!--===============================================================================================-->
-	<script src=" {% static "login/vendor/select2/select2.min.js" %}"></script>
-<!--===============================================================================================-->
-	<script src=" {% static "login/vendor/daterangepicker/moment.min.js" %}"></script>
-	<script src=" {% static "login/vendor/daterangepicker/daterangepicker.js" %}"></script>
-<!--===============================================================================================-->
-	<script src=" {% static "login/vendor/countdowntime/countdowntime.js" %}"></script>
-<!--===============================================================================================-->
-	<script src=" {% static "login/js/main.js" %}"></script>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="social-icons">
+    <ul class="list-unstyled text-center mb-0">
+      <li class="list-unstyled-item">
+        <a href="#">
+          <i class="fab fa-telegram"></i>
+        </a>
+      </li>
+      <li class="list-unstyled-item">
+        <a href="#">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+      <li class="list-unstyled-item">
+        <a href="#">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src=" {% static "login/vendor/jquery/jquery.min.js" %}"></script>
+  <script src=" {% static "login/vendor/bootstrap/js/bootstrap.bundle.min.js" %}"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src=" {% static "login/js/coming-soon.min.js" %}"></script>
 
 </body>
+
 </html>

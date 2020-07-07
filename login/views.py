@@ -17,6 +17,7 @@ def site_login(request ,template_name='login/login.html' ):
    
    if request.method == 'POST':
        if form.is_valid() : 
+           
            print(form.cleaned_data.get('username'))
            print(form.cleaned_data.get('password'))
           
@@ -25,6 +26,7 @@ def site_login(request ,template_name='login/login.html' ):
            login(request , user)
            return redirect('../profile/my')
        else :
+            
             return HttpResponse('form is not valid')
    else :
         return render(request , template_name , {'form' : form})
