@@ -12,12 +12,11 @@
 <div class="super_container">
 
 	<!-- Header -->
-
- {% include "header.html" %}
-
-
-	<!-- Menu -->
 {% include 'header.html' %}
+	<!-- Menu -->
+{% include 'menu.html' %}
+
+
 
 	<!-- Home -->
 
@@ -55,10 +54,10 @@
 						<div class="hero_box d-flex flex-row align-items-center justify-content-start">
 							<img src=" {% static "images/professor.svg" %}" class="svg" alt="">
 							<div class="hero_box_content">
-								<h2 class="hero_box_title">دانش آموزان</h2>
+								<h2 class="hero_box_title" style = 'font-family : "byekan"'>دانش آموزان</h2>
 								<center>
 
-									<a href="/profile/my/"  class="hero_box_link" style="font-size:24px;">ورود</a>
+									<a href="/profile/my/"  class="hero_box_link" style="font-size:24px;  font-family : 'byekan'">ورود</a>
 
 								</center>
 							</div>
@@ -70,31 +69,8 @@
 		</div>
 	</div>
 	]
-	<div class="popular page_section">
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<div class="section_title text-center">
-						<h1>اخبار آموزشی</h1>
-					</div>
-				</div>
-			</div>
-
-			<div class="row course_boxes" id = 'site_news'>
-				<!-- Popular Course Item -->
-				<!-- <div class="col-lg-4 course_box">
-					<div class="card">
-						<img class="card-img-top" src=" {% static "images/course_1.jpg" %}" alt="https://unsplash.com/@kellybrito">
-						<div class="card-body text-center">
-							<div class="card-title"><a href="courses.html">A complete guide to design</a></div>
-							<div class="card-text">Adobe Guide, Layes, Smart Objects etc...</div>
-						</div>
-					</div>
-				</div> -->
-				</div>
-			</div>
-		</div>
-	</div>
+	
+{% include 'news.html' %}
 
 
 

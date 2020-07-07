@@ -2,29 +2,33 @@
 	<header class="header d-flex flex-row">
 		<div class="header_content d-flex flex-row align-items-center">
 			<!-- Logo -->
+			{% comment %} <center>
 			<div class="logo_container">
 				<div class="logo">
 					<a href="https://www.medu.ir/fa/">
-					<img src=" {% static "images/amoozesh.png"  %}" alt="" width="130px">
+					<img src=" {% static "images/amoozesh.png"  %}" alt="" >
 					</a>
 
 				</div>
 			</div>
+			</center> {% endcomment %}
 
 			<!-- Main Navigation -->
 			<nav class="main_nav_container">
 				<div class="main_nav">
 					<ul class="main_nav_list">
-						<li class="main_nav_item"><a href="#">home</a></li>
-						<li class="main_nav_item"><a href="#">about us</a></li>
-						<li class="main_nav_item"><a href="courses.html">courses</a></li>
+						<li class="main_nav_item"><a href="#" style = "font-family : 'byekan' ;">سایت رسمی آموزش و پرورش</a></li>
+						<li class="main_nav_item"><a href="#" style = "font-family : 'byekan' ;">گالری تصاویر</a></li>
 
-						<li class="main_nav_item"><a href="news.html">news</a></li>
-						<li class="main_nav_item"><a href="contact.html">contact</a></li>
+						<li class="main_nav_item"><a href="#"style = "font-family : 'byekan' ;">اخبار مدرسه</a></li>
+						<li class="main_nav_item"><a href="courses.html"style = "font-family : 'byekan' ;">اطلاعیه ها</a></li>
+
+						<li class="main_nav_item"><a href="news.html" style = "font-family : 'byekan' ;">ارسال مدارک</a></li>
+						<li class="main_nav_item"><a href="contact.html" style = "font-family : 'byekan' ;">فرم پیش ثبت نام</a></li>
 						{% if user.is_authenticated %}
-						<li class="main_nav_item"><a href="/logout">خروج</a></li>
+						<li class="main_nav_item"><a href="/logout" style = "font-family : 'byekan' ;">خروج</a></li>
 						{% else %}
-						<li class="main_nav_item"><a href="/profile/my">ورود</a></li>
+						<li class="main_nav_item"><a href="/profile/my" style = "font-family : 'byekan'">ورود</a></li>
 						{% endif %}
 
 					</ul>

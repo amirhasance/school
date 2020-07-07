@@ -20,9 +20,11 @@ function create_news(news){
     div2.appendChild(image)
 
     aHref.innerText = news[i].title
+    aHref.style.fontFamily = 'byekan'
     aHref.href = "news/" + news[i].id
     div4.appendChild(aHref)
     div5.innerText = news[i].explanation
+    div5.style.fontFamily = 'byekan'
     div3.appendChild(div4)
     div3.appendChild(div5)
     div2.appendChild(div3)

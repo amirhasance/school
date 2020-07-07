@@ -1,0 +1,27 @@
+	
+    <div class="popular page_section">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="section_title text-center">
+						<h1 style = "font-family : 'byekan'">اخبار آموزشی</h1>
+					</div>
+				</div>
+			</div>
+
+			<div class="row course_boxes" id = 'site_news'>
+				 {% for new in news %}
+				 <div class="col-lg-4 course_box">
+					<div class="card">
+						<img class="card-img-top" src = {{new.image.url}} alt="https://unsplash.com/@kellybrito" width="300" height="250">
+						<div class="card-body text-center">
+							<div class="card-title"><a href="news/{{new.id}}" style='font-family: "byekan"'>{{new.title}}</a></div>
+							<div class="card-text" style = "font-family:'byekan' ; color:green">{{new.explanation}}</div>
+						</div>
+					</div>
+				</div> 
+				{% endfor %} 
+				
+			</div>
+		</div>
+	</div>

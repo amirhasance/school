@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse , JsonResponse
-from .serializers import serialized_news
+from news.models import last_3_news
 from django.utils.safestring import mark_safe
 import json
 from django.core.exceptions import ValidationError
@@ -10,8 +10,8 @@ def home(request , template_name = 'home.html'):
 
     data_to_send = {}
 
-    news = serialized_news()
-    data_to_send['news'] = mark_safe(json.dumps(news.data))
+    news = last_3_news()
+    data_to_send['news'] = news
     data_to_send['school_name'] = school_data["school_name"]
     data_to_send['telephone'] = school_data['telephone']
 
@@ -69,3 +69,11 @@ school_data = {
     "telephone" : "011 442 42 921",
 
 }
+
+from news.models import News
+from .serializers import News_Serializers
+def test(request , template_name = 'test.html'):
+    data = {}
+    news = News.objects.all()
+    data['news'] = news
+    return render(request , template_name , data)

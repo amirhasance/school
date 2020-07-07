@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+    <center>
+        This is Test
+      {% for new in news %}
+      <div class="">
+       <img src="{{new.image.url}}" alt="">
+       <p>{{new.title}}</p>
+       <p>{{new.explanation}}</p>
+
+      </div>
+      {% endfor %}
+
+    </center>
+
+
+</body>
+<script>
+var news = "{{news.image.url}}"
+</script>
+</html>

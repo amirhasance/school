@@ -9,7 +9,8 @@ urlpatterns = [
     path('login/' , include('login.urls' , namespace='login') , name='login'),
     path('news/' , include('news.urls' ,namespace='news') , name = 'news'),
     path('ajax/' , views.ajax_comment , name = 'comments'),
-    path('logout/' , log_out , name = 'log_out')
+    path('logout/' , log_out , name = 'log_out'),
+    path('test/' , views.test , name = 'test'),
 ]
 
 

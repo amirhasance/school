@@ -22,7 +22,7 @@ class News(models.Model):
         verbose_name_plural = "اخبار مدرسه"
     
 def last_3_news():
-    return News.objects.all()[:3]
+    return News.objects.all()[:6]
 
 
 class Comments(models.Model):
