@@ -22,6 +22,15 @@ def my(request , template_name = 'my_profile/my.html') :
 
     return render(request , template_name , context)
 
+from django.http import JsonResponse
+from klass.models import Tamrin , Dars
+from klass.serializers import Dars_serializer , Tamrin_serializer
+
+def ajax(request):
+    index = request.GET.get('index')
+    this_dars = Dars.objects.get(id = index)
+    tamrins = Tamrin_serializer( Tamrin.objects.get(dars = this_dars)  )
+    return JsonResponse({'tamrins': tamrins.data})
 
 
 

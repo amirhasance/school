@@ -20,9 +20,9 @@ def home(request , template_name = 'home.html'):
 
 
 def ajax_comment(request):
-    comment = str(request.GET.get('comment'))
-    print(comment)
-    if len(comment) > 25:
+    index = str(request.GET.get('index'))
+    print(index)
+    if len(index) > 25:
         data = {
             'is_ok' : True
         }
