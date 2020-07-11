@@ -10,11 +10,11 @@ import json
 @login_required
 def my(request , template_name = 'my_profile/my.html') :
     # import pdb ; pdb.set_trace()
- 
+
     student = Student.objects.get(user = request.user)
 
 
-    doroos = Dars.objects.filter(students = student) 
+    doroos = Dars.objects.filter(students = student)
     context = {
         "doroos" : doroos,
         "student" : student
@@ -29,9 +29,5 @@ from klass.serializers import Dars_serializer , Tamrin_serializer
 def ajax(request):
     index = request.GET.get('index')
     this_dars = Dars.objects.get(id = index)
-    tamrins = Tamrin_serializer( Tamrin.objects.get(dars = this_dars)  )
+    tamrins = Tamrin_serializer( Tamrin.objects.filter(dars = this_dars) , many =True )
     return JsonResponse({'tamrins': tamrins.data})
-
-
-
-

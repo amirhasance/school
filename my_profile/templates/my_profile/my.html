@@ -92,7 +92,7 @@
 	  <table class="table " id="ttable">
        <thead class="thead-dark">
     <tr>
-      
+
       <th scope="col" style='font-family:"byekan"'>  آپلود تمرین</th>
       <th scope="col" style='font-family:"byekan"'> مدت باقیمانده</th>
       <th scope="col" style='font-family:"byekan"'>فایل تمرین</th>
@@ -114,6 +114,7 @@
     <script src=" {% static  "my_profile/js/bootstrap.min.js" %}"></script>
     <script src=" {% static  "my_profile/js/main.js" %}"></script>
     <script type="text/javascript"  src="https://code.jquery.com/jquery-3.2.1.min.js"> </script>
+    
 	<script >
 
   $(".doroos").click(function () {
@@ -126,35 +127,39 @@
         },
         dataType: 'json',
         success: function (data) {
-          
-          var arr = new Array(data['tamrins'])
+
+          var arr = data['tamrins']
           console.log(arr)
-          
+
 
            $("#ttamrin").empty()
           for (var i =0 ; i <arr.length ; i++ )
           {
             var t = arr[i]
 
-            
+
             $("#ttamrin").prepend(
               `<tr>
               <th scope="row">انیثبی</td>
-                <td scope="row"> ${new Date(t['time_created']).toLocaleDateString()}</td>
-                 <td scope="row"><a href = ${t['file']} style='font-family:"byekan"' > دانلود فایل</a></td>
+                <td scope="row style='font-family:"byekan" ; font-weight:normal '"> ${new Date(t['time_created']).toLocaleDateString()}</td>
+                 <td scope="row">
+                   <form method="get" action=  ${t['file']}>
+                        <button type="submit" type="button" class="btn btn-info" style='font-family:"byekan" ; font-weight:normal '>دانلود</button>
+                    </form>
+                  </td>
                 <td scope="row" style='font-family:"byekan" ; font-weight:normal '><div> ${t['name']}</div></th>
-               
-                
-                
 
-                </tr> 
+
+
+
+                </tr>
               `
-            ) 
+            )
 
 
-          } 
-    
-          
+          }
+
+
         }
       });
 
