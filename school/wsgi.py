@@ -1,6 +1,6 @@
 
 import sys
-path = 'home/amir/projects/school'
+path = 'school/school'
 if path not in sys.path : 
     sys.path.append(path)
 
