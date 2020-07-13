@@ -6,6 +6,7 @@ app_name = "shool_home"
 
 urlpatterns = [
     path('' ,views.home , name='home'),
+    path('exam/' , include('exam.urls' , namespace='exam')  , name = 'exam'),
     path('login/' , include('login.urls' , namespace='login') , name='login'),
     path('news/' , include('news.urls' ,namespace='news') , name = 'news'),
     path('ajax/' , views.ajax_comment , name = 'comments'),

@@ -1,21 +1,25 @@
 from django.db import models
 from django.core.exceptions import ValidationError
-# Create your models here.
 from django.utils.translation import gettext_lazy as _
 from klass.models import Student , Teacher , Dars
 from school_home.views import file_size
+from django.core.validators import MinValueValidator, MaxValueValidator
 
-#TODO  : Try pip install django_cleanup , https://stackoverflow.com/questions/16041232/django-delete-filefield
+
 class Exam(models.Model):
     
     name = models.CharField(max_length = 500)
-    Time_starts = models.DateTimeField(auto_now_add=True)
-    Time_expires = models.DateTimeField(auto_now_add=False)
+    time_starts = models.DateTimeField()
+    time_ends = models.DateTimeField()
     dars = models.ForeignKey(Dars , on_delete=models.CASCADE)
     
     
     def __str__(self):
         return f'Exam = {self.name} , {self.dars} '
+    
+    class Meta:
+        verbose_name_plural = 'امتحانات'
+    
     
     
 
@@ -25,24 +29,52 @@ class Question(models.Model):
     name = models.CharField(max_length = 300 , null =True , blank=True)
     number = models.IntegerField(default=1 , null=False)
     question = models.CharField(max_length=500  , blank= False , null = False)
-    image = models.ImageField(upload_to = 'questions' , null =True , blank = True)
-    caution_help = models.CharField(max_length=500  , blank= False , null = False)
-    Barem = models.IntegerField()
+    image = models.ImageField(upload_to = 'questions/test' , null =True , blank = True)
+    # caution_help = models.CharField(max_length=500  , blank= False , null = False)
     exam = models.ForeignKey(Exam , on_delete=models.CASCADE)
-    Time_considered_to_solve_in_minute = models.IntegerField(default=1)
+    Time_considered_to_solve_in_seconds = models.IntegerField(default=1)
     
    
     choiceOne = models.CharField(max_length=500 , null=True , blank = True)
     choiceTwo = models.CharField(max_length=500 , null= True , blank = True)
     choiceThree = models.CharField(max_length=500 , null = True , blank = True)
     choiceFour = models.CharField(max_length=500 , null = True , blank = True)
+    correct_ans = models.IntegerField(validators=[MinValueValidator(1),
+                                       MaxValueValidator(4)])
     
     class Meta:
         ordering = ('number' , )
+        verbose_name_plural = 'سوالات'
     
     
     def __str__(self):
         return self.question 
+
+
+
+class WQuestion(models.Model):
+    name = models.CharField(max_length = 300 , null =True , blank=True)
+    number = models.IntegerField(default=1 , null=False)
+    question = models.CharField(max_length=500  , blank= False , null = False)
+    image = models.ImageField(upload_to = 'questions/tashrihi' , null =True , blank = True)
+    # caution_help = models.CharField(max_length=500  , blank= False , null = False)
+    exam = models.ForeignKey(Exam , on_delete=models.CASCADE)
+    Time_considered_to_solve_in_seconds = models.IntegerField(default=1)
+
+    class Meta:
+        ordering = ('number' , )
+        verbose_name_plural = 'سوالات تشریحی'
+
+    def __str__(self):
+        return self.question
+    
+    
+
+
+
+
+    
+
     
     
 class Answer(models.Model):
@@ -63,6 +95,7 @@ class Answer(models.Model):
     
     class Meta:
         ordering = ('question__number',)
+        verbose_name_plural = 'پاسخ ها'
     
     def __str__(self):
         return f'answer , {self.answer} , {self.question}'
@@ -70,7 +103,13 @@ class Answer(models.Model):
     
     
 
-    
- 
+class TestModel(models.Model):
+    name = models.CharField(max_length = 200)
+    date_time = models.DateTimeField()
+    date = models.DateField()
+
+    def __str__(self):
+        return self.name
 
     
+ 
