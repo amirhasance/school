@@ -46,7 +46,33 @@ def site_logout(request , template_name = 'login/logout.html'):
         
 
 def tlogin(request , template_name='login/tlogin.html'):
-    pass
+
+   form = login_Form(request.POST or None)
+
+   if request.user.is_authenticated :
+       return redirect('/profile/techer')
+    #    return redirect('/../profile/')
+      
+
+   
+   if request.method == 'POST':
+       if form.is_valid() : 
+           
+           print(form.cleaned_data.get('username'))
+           print(form.cleaned_data.get('password'))
+          
+           
+           user = authenticate(request=request , username =form.cleaned_data.get('username'),password = form.cleaned_data.get('password')  )
+           login(request , user)
+           return redirect('../profile/teacher')
+       else :
+            
+            return HttpResponse('form is not valid')
+   else :
+        return render(request , template_name , {'form' : form})
+    
+
+
 
 
 def alogin(request , template_name='login/alogin.html'):

@@ -1,0 +1,75 @@
+
+
+
+
+<td style="align-content: center; text-align: right;" >
+{% csrf_token %}
+
+<div style = 'font-family:"byekan"'>
+
+    <div class="card" style="align-items: right;">
+
+        <div class="card-body" style="font-family: serif;">
+          {{this.number}}
+        </div>
+        
+        <div class="card-body">
+            {{this.question}}
+          
+        </div>
+        <img class="card-img-top" src={{this.image.url}} alt="Card image cap" style="width: 400px;"  height="300px">
+       
+          
+        <div class="card-body">
+             
+        </div>
+
+      </div>
+      <div >
+   <form>
+      <div class="card">
+        <div class="card-body">
+          <!-- <div class="custom-control custom-radio">
+            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+            <label class="custom-control-label" for="customRadio1">Toggle this custom radio</label>
+          </div>
+          <div class="custom-control custom-radio">
+            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+            <label class="custom-control-label" for="customRadio2">Or toggle this other custom radio</label>
+          </div> -->
+          <div class="form-check">
+            <input type="radio" class="form-check-input" id="materialGroupExample1" name="groupOfMaterialRadios">
+            <label class="form-check-label" for="materialGroupExample1">{{this.choice_one}}</label>
+          </div>
+          
+          <!-- Group of material radios - option 2 -->
+          <div class="form-check">
+            <input type="radio" class="form-check-input" id="materialGroupExample2" name="groupOfMaterialRadios" checked>
+            <label class="form-check-label" for="materialGroupExample2">{{this.choice_two}}</label>
+          </div>
+          
+          <!-- Group of material radios - option 3 -->
+          <div class="form-check">
+            <input type="radio" class="form-check-input" id="materialGroupExample3" name="groupOfMaterialRadios">
+            <label class="form-check-label" for="materialGroupExample3">{{this.choice_three}}</label>
+          </div>
+          <div class="form-check">
+            <input type="radio" class="form-check-input" id="materialGroupExample2" name="groupOfMaterialRadios" checked>
+            <label class="form-check-label" for="materialGroupExample2">{{this.choice_four}}</label>
+          </div>
+
+          
+          <div class="custom-file" style="align-content: left; text-align: left;">
+            <input type="file" class="custom-file-input" id="customFile">
+            <label class="custom-file-label" for="customFile" style="font-family: 'byekan';">انتخاب فایل</label>
+          </div>
+          
+        </div>
+      </div>
+      </form>
+      </div>
+
+</div>
+
+
+</td>

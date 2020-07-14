@@ -26,6 +26,23 @@ from django.http import JsonResponse
 from klass.models import Tamrin , Dars
 from klass.serializers import Dars_serializer , Tamrin_serializer
 
+@login_required
+def teacher(request,template_name = 'my_profile/teacher.html'):
+    teacher  = Teacher.objects.get(user = request.user)
+
+    doroos = Dars.objects.filter(teacher = teacher)
+
+    context = {
+        'doroos' : doroos,
+        'teacher' : teacher
+    }
+
+    return render(request , template_name , context)
+    
+
+
+
+
 def ajax(request):
     index = request.GET.get('index')
     this_dars = Dars.objects.get(id = index)

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% include 'exam/links.html' %}
+</head>
+<body>
+<div > 
+    {% load jalali_tags %}
+
+   
+    
+    <button style='float:right ; font-family: "byekan" ; ' class="btn btn-primary"  >    زمان شروع آزمون  {{ exam.time_starts|to_jalali:' %H:%M' }}</button>
+
+  
+  <div class="container">
+    {% comment %} <button style='float:right ; font-family: "byekan" ; ' class="btn btn-primary"  >    زمان شروع آزمون  {{ exam.time_starts|to_jalali:' %H:%M' }}</button> {% endcomment %}
+    <button style='float:right ; font-family: "byekan" ; ' class="btn btn-info"  >    زمان پایان آزمون  {{ exam.time_ends|to_jalali:' %H:%M' }}</button>
+   
+  
+</div>
+ <button  style='float:left ; font-family: "byekan"' class='btn btn-danger'>  اتمام آزمون  </button>
+<div> 
+
+    <table class="table">
+        <thead class="thead-light">
+          <tr style="font-family: 'byekan'; " >
+            
+            <th scope="col" width='10%' style="align-content: center; text-align: right;" ></th>
+            <th scope="col" id='this_question' width = '70%' style="align-content: center; text-align: right;">موضوع</th>
+            <th scope="col" width = '20%' style="align-content: center; text-align: right;">سوالات</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr>
+
+            <th scope="row" style="align-content: center; text-align: right;">#</th>
+            {% include 'exam/center.html' %}
+           {% include 'exam/right_side_questions.html' %}
+           
+
+           </tr>
+  
+        </tbody>
+    
+      </table>
+      </div>
+     
+    
+
+    </div>
+
+</body> 
+<script>
+// Add the following code if you want the name of the file appear on select
+$(".custom-file-input").on("change", function() {
+  var fileName = $(this).val().split("\\").pop();
+  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+});
+</script>
+</html>

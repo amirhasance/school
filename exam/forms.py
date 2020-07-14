@@ -45,3 +45,46 @@ class ExamForm(forms.ModelForm):
         self.fields['time_ends'] = SplitJalaliDateTimeField(label=_('date time'), 
             widget=AdminSplitJalaliDateTime # required, for decompress DatetimeField to JalaliDateField and JalaliTimeField
         )
+
+
+class AnswerForm(forms.ModelForm):
+    class Meta:
+        model = Answer
+        fields = ('answer' ,  'question' , 'image' , 'selected_choice' , 'student' , 'is_seened' , 'is_solved')
+
+
+    def __init__(self, *args, **kwargs):
+        super(AnswerForm, self).__init__(*args, **kwargs)
+        
+
+        # you can added a "class" to this field for use your datepicker!
+        # self.fields['date'].widget.attrs.update({'class': 'jalali_date-date'})
+
+        # self.fields['time_starts'] = SplitJalaliDateTimeField(label=_('date time'), 
+        #     widget=AdminSplitJalaliDateTime # required, for decompress DatetimeField to JalaliDateField and JalaliTimeField
+        # )
+        # self.fields['time_ends'] = SplitJalaliDateTimeField(label=_('date time'), 
+        #     widget=AdminSplitJalaliDateTime # required, for decompress DatetimeField to JalaliDateField and JalaliTimeField
+        # )
+    
+
+class QuestionForm(forms.ModelForm):
+    class Meta:
+        model = Question
+        fields = '__all__'
+
+
+    def __init__(self, *args, **kwargs):
+        super(QuestionForm, self).__init__(*args, **kwargs)
+        
+
+        # you can added a "class" to this field for use your datepicker!
+        # self.fields['date'].widget.attrs.update({'class': 'jalali_date-date'})
+
+        # self.fields['time_starts'] = SplitJalaliDateTimeField(label=_('date time'), 
+        #     widget=AdminSplitJalaliDateTime # required, for decompress DatetimeField to JalaliDateField and JalaliTimeField
+        # )
+        # self.fields['time_ends'] = SplitJalaliDateTimeField(label=_('date time'), 
+        #     widget=AdminSplitJalaliDateTime # required, for decompress DatetimeField to JalaliDateField and JalaliTimeField
+        # )
+
