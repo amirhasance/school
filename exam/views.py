@@ -41,8 +41,8 @@ def attend(request , template_name = 'exam/attend.html' , exam_pk = None  , ques
     # check if this exam of this user has this question ,, question must exist in his exam
     print(this)
 
-
-    return render(request , template_name , {'exam' : this_exam , 'questions' : questions , 'this' : this , 'ans' : ans})
+    time = timezone.now()
+    return render(request , template_name , {'exam' : this_exam , 'questions' : questions , 'this' : this , 'ans' : ans , 'time': time})
 
 
 

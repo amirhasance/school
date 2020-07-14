@@ -17,7 +17,8 @@
   
   <div class="container">
     {% comment %} <button style='float:right ; font-family: "byekan" ; ' class="btn btn-primary"  >    زمان شروع آزمون  {{ exam.time_starts|to_jalali:' %H:%M' }}</button> {% endcomment %}
-    <button style='float:right ; font-family: "byekan" ; ' class="btn btn-info"  >    زمان پایان آزمون  {{ exam.time_ends|to_jalali:' %H:%M' }}</button>
+    <button style='float:right ; font-family: "byekan" ; ' class="btn btn-info"  >    اکنون {{ time|to_jalali:' %H:%M' }}</button>
+    <button style='float:right ; font-family: "byekan" ; ' class="btn btn-warning"  >    زمان پایان آزمون  {{ exam.time_ends|to_jalali:' %H:%M:%S' }}</button>
    
   
 </div>
