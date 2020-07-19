@@ -1,7 +1,8 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
+{% load jalali_tags%}
+<link rel="stylesheet" type="text/css" href=" {% static "pfont.css"  %}">
 <head>
 
   <meta charset="utf-8">
@@ -43,83 +44,66 @@
   </script>
 
   <!-- Navigation -->
-  <div class='container'>
+ 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" >
     <div class="container">
-      <a class="navbar-brand" href="#">Start Bootstrap</a>
+      <a class="navbar-brand" href="#"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
+      <div class="collapse navbar-collapse" id="navbarResponsive" >
+        <ul class="navbar-nav ml-auto" style="text-align: center;">
           <li class="nav-item active">
-            <a class="nav-link" href="/../../" style='font-family: "byekan"'>صفحه اصلی
+            <a class="nav-link" href="/../../" style='font-family: "byekan" ;'>صفحه اصلی
               <span class="sr-only">(current)</span>
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+          <li class="nav-item active">
+            <a class="nav-link" href="/login"  style='font-family: "byekan"'>ورود</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
-          </li>
+        
         </ul>
       </div>
     </div>
   </nav>
   </div>
+  </div> 
 
   <!-- Page Content -->
-  <div class="container">
+  <div class="container" style="align-content: right; text-align: right;">
 
     <div class="row">
 
       <!-- Post Content Column -->
-      <div class="col-lg-8">
+      <div class="col-lg-8" >
 
         <!-- Title -->
-        <h1 class="mt-4">{{new.title}}</h1>
+        <h3 class="mt-3" style="font-family: 'byekan'">{{new.title}}</h1>
 
         <!-- Author -->
-        {% comment %} <p class="lead">
-          by
-          <a href="#">Start Bootstrap</a>
-        </p> {% endcomment %}
+       
 
         <hr>
 
         <!-- Date/Time -->
-        <p> {{new.time}}</p>
+         <p style="font-family: 'byekan'"> نوشته شده در تاریخ</p> <p style="text-align: center;"> {{ new.time|to_jalali:' %y/%m/%d %H:%M' }}</p>
 
         <hr>
 
+      
         <!-- Preview Image -->
-        <img class="img-fluid rounded" src={{ new.image.url}} alt="">
+        <div class="text-center">
+          <img src={{new.image.url}} class="rounded" alt="..."  width='90%' height='60%'>
+        </div>
 
         <hr>
 
-        <!-- Post Content -->
-        {% comment %} <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?</p>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.</p>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, doloribus, dolorem iusto blanditiis unde eius illum consequuntur neque dicta incidunt ullam ea hic porro optio ratione repellat perspiciatis. Enim, iure!</p> {% endcomment %}
-
-        <blockquote class="blockquote">
-          <p class="mb-0">{{new.explanation}}</p>
-          <footer class="blockquote-footer">
-            <cite title="Source Title"></cite>
-          </footer>
+         <blockquote class="blockquote">
+          <p class="mb-0" style="font-family: 'byekan'">{{new.explanation}}</p>
+          <!-- <footer class="blockquote-footer">
+            <cite title="Source Title">fef</cite>
+          </footer> -->
         </blockquote>
-
-        {% comment %} <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum, aliquid, animi, ut quas placeat totam sunt tempora commodi nihil ullam alias modi dicta saepe minima ab quo voluptatem obcaecati?</p>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, dolor quis. Sunt, ut, explicabo, aliquam tenetur ratione tempore quidem voluptates cupiditate voluptas illo saepe quaerat numquam recusandae? Qui, necessitatibus, est!</p> {% endcomment %}
-
-        <hr>
 
         {% if user.is_authenticated %}
             <div class="card my-4">
@@ -153,7 +137,7 @@
       <!-- Sidebar Widgets Column -->
       <div class="col-md-4">
 
-        <!-- Search Widget -->
+        <!-- Search Widget
         <div class="card my-4">
           <h5 class="card-header">Search</h5>
           <div class="card-body">
@@ -164,10 +148,10 @@
               </span>
             </div>
           </div>
-        </div>
+        </div> -->
 
         <!-- Categories Widget -->
-        <div class="card my-4">
+        <!-- <div class="card my-4">
           <h5 class="card-header">Categories</h5>
           <div class="card-body">
             <div class="row">
@@ -199,13 +183,19 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
 
         <!-- Side Widget -->
         <div class="card my-4">
-          <h5 class="card-header">Side Widget</h5>
+          <h5 class="card-header" style='font-family:"byekan" ; color:green'>دیگر اخبار</h5>
           <div class="card-body">
-            You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
+            <!-- You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers! -->
+            {% for new in news %}
+            <p style='font-family:"serif" ;color:green; font-szie:15 '>
+            <a href='./{{new.id}}' style='font-family:"byekan" ; color:MediumSeaGreen ;  '>
+            {{new.title}}  </a> &nbsp; {{new.time|to_jalali:' %y/%m' }} </p>
+            {% endfor %}
+
           </div>
         </div>
 
@@ -220,7 +210,7 @@
   <!-- Footer -->
   <footer class="py-5 bg-dark">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
+      <p class="m-0 text-center text-white" style="font-family: 'byekan';">گروه فنی مهندسی آرمش</p>
     </div>
     <!-- /.container -->
   </footer>

@@ -15,8 +15,16 @@
 					<div class="card">
 						<img class="card-img-top" src = {{new.image.url}} alt="https://unsplash.com/@kellybrito" width="300" height="250">
 						<div class="card-body text-center">
+						
 							<div class="card-title"><a href="news/{{new.id}}" style='font-family: "byekan"'>{{new.title}}</a></div>
-							<div class="card-text" style = "font-family:'byekan' ; color:green">{{new.explanation}}</div>
+
+							{% if new.is_long %}
+							<div class="card-text" style = "font-family:'byekan' ; color:green"> ...{{new.summery}} </div>
+							
+							{% else %}
+							
+							<div class="card-text" style = "font-family:'byekan' ; color:green">{{new.explanation}} </div>
+								{% endif %}
 						</div>
 					</div>
 				</div> 

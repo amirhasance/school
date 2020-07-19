@@ -18,12 +18,13 @@ def comments_of_this_new(new):
 
 def this_new(request  , pk = None , template_name = 'news/this_new.html'):
     new = News.objects.get(id = pk)
-    serialized_comment_of_this_news = serialize_comments(comments_of_this_new(new))
     data_to_send = {}
     data_to_send['new'] = new
+    news = News.objects.exclude(id = new.id)[:20]
+    data_to_send['news'] = news
     # data_to_send['comments'] = mark_safe(json.dumps(serialized_comment_of_this_news.data))
-    data_to_send['comments'] = comments_of_this_new(new)
-    # import pdb ; pdb.set_trace()
+    # data_to_send['comments'] = comments_of_this_new(new)
+
     
     return render(request , template_name , data_to_send )
   
