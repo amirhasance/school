@@ -77,6 +77,7 @@ class Tamrin(models.Model):
         ordering = ('time_created',)
         verbose_name_plural = 'تمارین   '
     
+    
 
                                                  
 

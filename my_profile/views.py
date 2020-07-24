@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
-from klass.models import Student , Teacher , Dars
+from klass.models import Student , Teacher , Dars , Tamrin
 from django.contrib.auth.models import User
 
 from django.utils.safestring import mark_safe
@@ -50,10 +50,15 @@ def exercise(request , template_name='my_profile/exercise.html' , pk=None):
     pk = pk
 
     student = Student.objects.get(user = request.user)
+    tamrins = Tamrin.objects.all()
+    dars = Dars.objects.get(id = pk)
+    print(f'excersis = {tamrins}')
 
     doroos = Dars.objects.filter(students = student)
     context = {
         "doroos" : doroos,
+        'dars' : dars,
+        'tamrins' : tamrins ,
         "student" : student,
         'pk' : pk,
     }
