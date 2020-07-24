@@ -2187,3 +2187,80 @@ NameError: name 'TypeError' is not defined
 [Fri Jul 24 13:09:37.147033 2020] [wsgi:error] [pid 73793:tid 140006888048384] [remote 5.236.35.245:12841] Not Found: /profile/my/favorite.ico
 [Fri Jul 24 13:09:47.911710 2020] [wsgi:error] [pid 73793:tid 140006888048384] [remote 5.236.35.245:12843] Not Found: /profile/my_files/favorite.ico
 [Fri Jul 24 13:09:52.856862 2020] [wsgi:error] [pid 73793:tid 140006787335936] [remote 5.236.35.245:12843] Not Found: /profile/exercise/favorite.ico
+Exception ignored in: <function BaseEventLoop.__del__ at 0x7f55dd212700>
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/asyncio/base_events.py", line 654, in __del__
+NameError: name 'ResourceWarning' is not defined
+Exception ignored in: <function Local.__del__ at 0x7f55de1fe550>
+Traceback (most recent call last):
+  File "/home/amir/school/venv/lib/python3.8/site-packages/asgiref/local.py", line 96, in __del__
+NameError: name 'TypeError' is not defined
+Exception ignored in: <function Local.__del__ at 0x7f55de1fe550>
+Traceback (most recent call last):
+  File "/home/amir/school/venv/lib/python3.8/site-packages/asgiref/local.py", line 96, in __del__
+NameError: name 'TypeError' is not defined
+Exception ignored in: <function Local.__del__ at 0x7f55de1fe550>
+Traceback (most recent call last):
+  File "/home/amir/school/venv/lib/python3.8/site-packages/asgiref/local.py", line 96, in __del__
+NameError: name 'TypeError' is not defined
+[Fri Jul 24 14:32:19.288589 2020] [wsgi:error] [pid 79171:tid 140355901126400] [remote 5.236.35.245:14374] Not Found: /favicon.ico
+[Fri Jul 24 14:32:27.119052 2020] [wsgi:error] [pid 79171:tid 140356001838848] [remote 5.236.35.245:14376] elahe
+[Fri Jul 24 14:32:27.119114 2020] [wsgi:error] [pid 79171:tid 140356001838848] [remote 5.236.35.245:14376] sadeghi123
+[Fri Jul 24 14:32:27.470219 2020] [wsgi:error] [pid 79171:tid 140356001838848] [remote 5.236.35.245:14376] Internal Server Error: /login/
+[Fri Jul 24 14:32:27.470264 2020] [wsgi:error] [pid 79171:tid 140356001838848] [remote 5.236.35.245:14376] Traceback (most recent call last):
+[Fri Jul 24 14:32:27.470270 2020] [wsgi:error] [pid 79171:tid 140356001838848] [remote 5.236.35.245:14376]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+[Fri Jul 24 14:32:27.470297 2020] [wsgi:error] [pid 79171:tid 140356001838848] [remote 5.236.35.245:14376]     response = get_response(request)
+[Fri Jul 24 14:32:27.470301 2020] [wsgi:error] [pid 79171:tid 140356001838848] [remote 5.236.35.245:14376]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+[Fri Jul 24 14:32:27.470305 2020] [wsgi:error] [pid 79171:tid 140356001838848] [remote 5.236.35.245:14376]     response = self.process_exception_by_middleware(e, request)
+[Fri Jul 24 14:32:27.470309 2020] [wsgi:error] [pid 79171:tid 140356001838848] [remote 5.236.35.245:14376]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+[Fri Jul 24 14:32:27.470312 2020] [wsgi:error] [pid 79171:tid 140356001838848] [remote 5.236.35.245:14376]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Fri Jul 24 14:32:27.470316 2020] [wsgi:error] [pid 79171:tid 140356001838848] [remote 5.236.35.245:14376]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+[Fri Jul 24 14:32:27.470320 2020] [wsgi:error] [pid 79171:tid 140356001838848] [remote 5.236.35.245:14376]     return view_func(*args, **kwargs)
+[Fri Jul 24 14:32:27.470323 2020] [wsgi:error] [pid 79171:tid 140356001838848] [remote 5.236.35.245:14376]   File "/home/amir/school/login/views.py", line 26, in site_login
+[Fri Jul 24 14:32:27.470326 2020] [wsgi:error] [pid 79171:tid 140356001838848] [remote 5.236.35.245:14376]     login(request , user)
+[Fri Jul 24 14:32:27.470330 2020] [wsgi:error] [pid 79171:tid 140356001838848] [remote 5.236.35.245:14376]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/contrib/auth/__init__.py", line 125, in login
+[Fri Jul 24 14:32:27.470333 2020] [wsgi:error] [pid 79171:tid 140356001838848] [remote 5.236.35.245:14376]     request.session[SESSION_KEY] = user._meta.pk.value_to_string(user)
+[Fri Jul 24 14:32:27.470337 2020] [wsgi:error] [pid 79171:tid 140356001838848] [remote 5.236.35.245:14376]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/utils/functional.py", line 225, in inner
+[Fri Jul 24 14:32:27.470340 2020] [wsgi:error] [pid 79171:tid 140356001838848] [remote 5.236.35.245:14376]     return func(self._wrapped, *args)
+[Fri Jul 24 14:32:27.470344 2020] [wsgi:error] [pid 79171:tid 140356001838848] [remote 5.236.35.245:14376] AttributeError: 'AnonymousUser' object has no attribute '_meta'
+[Fri Jul 24 14:39:14.416753 2020] [wsgi:error] [pid 79171:tid 140356001838848] [remote 5.236.35.245:14545] Not Found: /favicon.ico
+[Fri Jul 24 14:39:18.492430 2020] [wsgi:error] [pid 79171:tid 140355901126400] [remote 5.236.35.245:14545] elahe
+[Fri Jul 24 14:39:18.493041 2020] [wsgi:error] [pid 79171:tid 140355901126400] [remote 5.236.35.245:14545] sadeghi123
+[Fri Jul 24 14:39:18.806361 2020] [wsgi:error] [pid 79171:tid 140355901126400] [remote 5.236.35.245:14545] Internal Server Error: /login/
+[Fri Jul 24 14:39:18.806415 2020] [wsgi:error] [pid 79171:tid 140355901126400] [remote 5.236.35.245:14545] Traceback (most recent call last):
+[Fri Jul 24 14:39:18.806420 2020] [wsgi:error] [pid 79171:tid 140355901126400] [remote 5.236.35.245:14545]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+[Fri Jul 24 14:39:18.806425 2020] [wsgi:error] [pid 79171:tid 140355901126400] [remote 5.236.35.245:14545]     response = get_response(request)
+[Fri Jul 24 14:39:18.806429 2020] [wsgi:error] [pid 79171:tid 140355901126400] [remote 5.236.35.245:14545]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+[Fri Jul 24 14:39:18.806434 2020] [wsgi:error] [pid 79171:tid 140355901126400] [remote 5.236.35.245:14545]     response = self.process_exception_by_middleware(e, request)
+[Fri Jul 24 14:39:18.806457 2020] [wsgi:error] [pid 79171:tid 140355901126400] [remote 5.236.35.245:14545]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+[Fri Jul 24 14:39:18.806461 2020] [wsgi:error] [pid 79171:tid 140355901126400] [remote 5.236.35.245:14545]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Fri Jul 24 14:39:18.806465 2020] [wsgi:error] [pid 79171:tid 140355901126400] [remote 5.236.35.245:14545]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+[Fri Jul 24 14:39:18.806468 2020] [wsgi:error] [pid 79171:tid 140355901126400] [remote 5.236.35.245:14545]     return view_func(*args, **kwargs)
+[Fri Jul 24 14:39:18.806472 2020] [wsgi:error] [pid 79171:tid 140355901126400] [remote 5.236.35.245:14545]   File "/home/amir/school/login/views.py", line 26, in site_login
+[Fri Jul 24 14:39:18.806475 2020] [wsgi:error] [pid 79171:tid 140355901126400] [remote 5.236.35.245:14545]     login(request , user)
+[Fri Jul 24 14:39:18.806478 2020] [wsgi:error] [pid 79171:tid 140355901126400] [remote 5.236.35.245:14545]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/contrib/auth/__init__.py", line 125, in login
+[Fri Jul 24 14:39:18.806482 2020] [wsgi:error] [pid 79171:tid 140355901126400] [remote 5.236.35.245:14545]     request.session[SESSION_KEY] = user._meta.pk.value_to_string(user)
+[Fri Jul 24 14:39:18.806486 2020] [wsgi:error] [pid 79171:tid 140355901126400] [remote 5.236.35.245:14545]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/utils/functional.py", line 225, in inner
+[Fri Jul 24 14:39:18.806489 2020] [wsgi:error] [pid 79171:tid 140355901126400] [remote 5.236.35.245:14545]     return func(self._wrapped, *args)
+[Fri Jul 24 14:39:18.806492 2020] [wsgi:error] [pid 79171:tid 140355901126400] [remote 5.236.35.245:14545] AttributeError: 'AnonymousUser' object has no attribute '_meta'
+Exception ignored in: <function BaseEventLoop.__del__ at 0x7fa725f54700>
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/asyncio/base_events.py", line 654, in __del__
+NameError: name 'ResourceWarning' is not defined
+Exception ignored in: <function Local.__del__ at 0x7fa726ed9550>
+Traceback (most recent call last):
+  File "/home/amir/school/venv/lib/python3.8/site-packages/asgiref/local.py", line 96, in __del__
+NameError: name 'TypeError' is not defined
+Exception ignored in: <function Local.__del__ at 0x7fa726ed9550>
+Traceback (most recent call last):
+  File "/home/amir/school/venv/lib/python3.8/site-packages/asgiref/local.py", line 96, in __del__
+NameError: name 'TypeError' is not defined
+Exception ignored in: <function Local.__del__ at 0x7fa726ed9550>
+Traceback (most recent call last):
+  File "/home/amir/school/venv/lib/python3.8/site-packages/asgiref/local.py", line 96, in __del__
+NameError: name 'TypeError' is not defined
+[Fri Jul 24 14:56:35.306389 2020] [wsgi:error] [pid 80048:tid 139739730306816] [remote 51.83.3.220:45512] Not Found: /favicon.ico
+[Fri Jul 24 14:56:39.807941 2020] [wsgi:error] [pid 80048:tid 139739847804672] [remote 51.83.3.220:41907] elahe
+[Fri Jul 24 14:56:39.807995 2020] [wsgi:error] [pid 80048:tid 139739847804672] [remote 51.83.3.220:41907] sadeghi123
+[Fri Jul 24 14:56:43.123657 2020] [wsgi:error] [pid 80048:tid 139739730306816] [remote 51.83.3.220:22802] Not Found: /profile/my/favorite.ico
+[Fri Jul 24 14:56:47.103498 2020] [wsgi:error] [pid 80048:tid 139739730306816] [remote 51.83.3.220:22802] Not Found: /profile/exercise/favorite.ico
