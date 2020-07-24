@@ -2604,3 +2604,66 @@ NameError: name 'TypeError' is not defined
 [Fri Jul 24 18:10:20.090764 2020] [wsgi:error] [pid 84235:tid 140070964197120] [remote 93.117.118.135:15568] Not Found: /favicon.ico
 [Fri Jul 24 18:10:29.457733 2020] [wsgi:error] [pid 84235:tid 140070846699264] [remote 93.117.118.135:15572] Not Found: /favicon.ico
 [Fri Jul 24 18:24:35.842306 2020] [wsgi:error] [pid 84235:tid 140070964197120] [remote 185.221.134.234:63096] Not Found: /robots.txt
+[Fri Jul 24 18:33:32.771955 2020] [wsgi:error] [pid 84235:tid 140070846699264] [remote 93.117.118.135:16278] Not Found: /favicon.ico
+[Fri Jul 24 18:33:52.854739 2020] [wsgi:error] [pid 84235:tid 140070964197120] [remote 93.117.118.135:16307] Internal Server Error: /profile/my/
+[Fri Jul 24 18:33:52.854794 2020] [wsgi:error] [pid 84235:tid 140070964197120] [remote 93.117.118.135:16307] Traceback (most recent call last):
+[Fri Jul 24 18:33:52.854799 2020] [wsgi:error] [pid 84235:tid 140070964197120] [remote 93.117.118.135:16307]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+[Fri Jul 24 18:33:52.854804 2020] [wsgi:error] [pid 84235:tid 140070964197120] [remote 93.117.118.135:16307]     response = get_response(request)
+[Fri Jul 24 18:33:52.854808 2020] [wsgi:error] [pid 84235:tid 140070964197120] [remote 93.117.118.135:16307]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+[Fri Jul 24 18:33:52.854831 2020] [wsgi:error] [pid 84235:tid 140070964197120] [remote 93.117.118.135:16307]     response = self.process_exception_by_middleware(e, request)
+[Fri Jul 24 18:33:52.854834 2020] [wsgi:error] [pid 84235:tid 140070964197120] [remote 93.117.118.135:16307]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+[Fri Jul 24 18:33:52.854838 2020] [wsgi:error] [pid 84235:tid 140070964197120] [remote 93.117.118.135:16307]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Fri Jul 24 18:33:52.854842 2020] [wsgi:error] [pid 84235:tid 140070964197120] [remote 93.117.118.135:16307]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+[Fri Jul 24 18:33:52.854846 2020] [wsgi:error] [pid 84235:tid 140070964197120] [remote 93.117.118.135:16307]     return view_func(request, *args, **kwargs)
+[Fri Jul 24 18:33:52.854849 2020] [wsgi:error] [pid 84235:tid 140070964197120] [remote 93.117.118.135:16307]   File "/home/amir/school/my_profile/views.py", line 14, in my
+[Fri Jul 24 18:33:52.854853 2020] [wsgi:error] [pid 84235:tid 140070964197120] [remote 93.117.118.135:16307]     student = Student.objects.get(user = request.user)
+[Fri Jul 24 18:33:52.854856 2020] [wsgi:error] [pid 84235:tid 140070964197120] [remote 93.117.118.135:16307]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+[Fri Jul 24 18:33:52.854860 2020] [wsgi:error] [pid 84235:tid 140070964197120] [remote 93.117.118.135:16307]     return getattr(self.get_queryset(), name)(*args, **kwargs)
+[Fri Jul 24 18:33:52.854863 2020] [wsgi:error] [pid 84235:tid 140070964197120] [remote 93.117.118.135:16307]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/db/models/query.py", line 415, in get
+[Fri Jul 24 18:33:52.854867 2020] [wsgi:error] [pid 84235:tid 140070964197120] [remote 93.117.118.135:16307]     raise self.model.DoesNotExist(
+[Fri Jul 24 18:33:52.854870 2020] [wsgi:error] [pid 84235:tid 140070964197120] [remote 93.117.118.135:16307] klass.models.Student.DoesNotExist: Student matching query does not exist.
+[Fri Jul 24 18:34:04.773645 2020] [wsgi:error] [pid 84235:tid 140070964197120] [remote 93.117.118.135:16329] Not Found: /favicon.ico
+[Fri Jul 24 18:34:08.604444 2020] [wsgi:error] [pid 84235:tid 140070846699264] [remote 93.117.118.135:16329] elahe
+[Fri Jul 24 18:34:08.604500 2020] [wsgi:error] [pid 84235:tid 140070846699264] [remote 93.117.118.135:16329] sadeghi123
+[Fri Jul 24 18:34:09.671535 2020] [wsgi:error] [pid 84235:tid 140070964197120] [remote 93.117.118.135:16329] Not Found: /profile/my/favorite.ico
+[Fri Jul 24 18:34:18.108019 2020] [wsgi:error] [pid 84235:tid 140070846699264] [remote 93.117.118.135:16340] excersis = <QuerySet [<Tamrin: \xd8\xaa\xd9\x85\xd8\xb1\xdb\x8c\xd9\x86 \xd8\xb3\xd8\xb1\xdb\x8c \xd8\xa7\xd9\x88\xd9\x84>, <Tamrin: \xd8\xb3\xd8\xb1\xdb\x8c \xd8\xaf\xd9\x88\xd9\x85>, <Tamrin: \xd8\xb3\xd8\xb1\xdb\x8c \xd8\xa7\xd9\x88\xd9\x84>]>
+[Fri Jul 24 18:34:18.879864 2020] [wsgi:error] [pid 84235:tid 140070964197120] [remote 93.117.118.135:16341] Not Found: /profile/exercise/favorite.ico
+[Fri Jul 24 18:34:26.978064 2020] [wsgi:error] [pid 84235:tid 140070964197120] [remote 93.117.118.135:16349] Not Found: /profile/my_files/favorite.ico
+[Fri Jul 24 18:35:31.888047 2020] [wsgi:error] [pid 84235:tid 140070846699264] [remote 93.117.118.135:16420] excersis = <QuerySet [<Tamrin: \xd8\xaa\xd9\x85\xd8\xb1\xdb\x8c\xd9\x86 \xd8\xb3\xd8\xb1\xdb\x8c \xd8\xa7\xd9\x88\xd9\x84>, <Tamrin: \xd8\xb3\xd8\xb1\xdb\x8c \xd8\xaf\xd9\x88\xd9\x85>, <Tamrin: \xd8\xb3\xd8\xb1\xdb\x8c \xd8\xa7\xd9\x88\xd9\x84>]>
+[Fri Jul 24 18:35:36.539460 2020] [wsgi:error] [pid 84235:tid 140070964197120] [remote 93.117.118.135:16421] Not Found: /favicon.ico
+[Fri Jul 24 20:16:29.579449 2020] [wsgi:error] [pid 84235:tid 140070964197120] [remote 93.117.118.135:19030] Not Found: /favicon.ico
+[Fri Jul 24 20:21:20.562093 2020] [wsgi:error] [pid 84235:tid 140070964197120] [remote 93.117.118.135:19290] Not Found: /favicon.ico
+[Fri Jul 24 20:21:25.554835 2020] [wsgi:error] [pid 84235:tid 140070846699264] [remote 93.117.118.135:19291] elahe
+[Fri Jul 24 20:21:25.554894 2020] [wsgi:error] [pid 84235:tid 140070846699264] [remote 93.117.118.135:19291] sadeghi123
+[Fri Jul 24 20:21:27.492395 2020] [wsgi:error] [pid 84235:tid 140070964197120] [remote 93.117.118.135:19307] Not Found: /profile/my/favorite.ico
+[Fri Jul 24 20:21:40.396747 2020] [wsgi:error] [pid 84235:tid 140070846699264] [remote 93.117.118.135:19312] excersis = <QuerySet [<Tamrin: \xd8\xaa\xd9\x85\xd8\xb1\xdb\x8c\xd9\x86 \xd8\xb3\xd8\xb1\xdb\x8c \xd8\xa7\xd9\x88\xd9\x84>, <Tamrin: \xd8\xb3\xd8\xb1\xdb\x8c \xd8\xaf\xd9\x88\xd9\x85>, <Tamrin: \xd8\xb3\xd8\xb1\xdb\x8c \xd8\xa7\xd9\x88\xd9\x84>]>
+[Fri Jul 24 20:21:40.867206 2020] [wsgi:error] [pid 84235:tid 140070964197120] [remote 93.117.118.135:19314] Not Found: /profile/exercise/favorite.ico
+[Fri Jul 24 20:21:43.424213 2020] [wsgi:error] [pid 84235:tid 140070846699264] [remote 93.117.118.135:19314] Not Found: /favicon.ico
+[Fri Jul 24 20:21:45.577498 2020] [wsgi:error] [pid 84235:tid 140070964197120] [remote 93.117.118.135:19314] Not Found: /profile/exercise/favorite.ico
+Exception ignored in: <function BaseEventLoop.__del__ at 0x7f64c3638700>
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/asyncio/base_events.py", line 654, in __del__
+NameError: name 'ResourceWarning' is not defined
+Exception ignored in: <function Local.__del__ at 0x7f64c85c3550>
+Traceback (most recent call last):
+  File "/home/amir/school/venv/lib/python3.8/site-packages/asgiref/local.py", line 96, in __del__
+NameError: name 'TypeError' is not defined
+Exception ignored in: <function Local.__del__ at 0x7f64c85c3550>
+Traceback (most recent call last):
+  File "/home/amir/school/venv/lib/python3.8/site-packages/asgiref/local.py", line 96, in __del__
+NameError: name 'TypeError' is not defined
+Exception ignored in: <function Local.__del__ at 0x7f64c85c3550>
+Traceback (most recent call last):
+  File "/home/amir/school/venv/lib/python3.8/site-packages/asgiref/local.py", line 96, in __del__
+NameError: name 'TypeError' is not defined
+[Fri Jul 24 20:43:14.889503 2020] [wsgi:error] [pid 86112:tid 140023259363072] [remote 51.83.3.220:62939] Not Found: /profile/my/favorite.ico
+[Fri Jul 24 20:43:26.108617 2020] [wsgi:error] [pid 86112:tid 140023158650624] [remote 51.83.3.220:37379] excersis = <QuerySet [<Tamrin: \xd8\xaa\xd9\x85\xd8\xb1\xdb\x8c\xd9\x86 \xd8\xb3\xd8\xb1\xdb\x8c \xd8\xa7\xd9\x88\xd9\x84>, <Tamrin: \xd8\xb3\xd8\xb1\xdb\x8c \xd8\xaf\xd9\x88\xd9\x85>, <Tamrin: \xd8\xb3\xd8\xb1\xdb\x8c \xd8\xa7\xd9\x88\xd9\x84>]>
+[Fri Jul 24 20:43:26.640446 2020] [wsgi:error] [pid 86112:tid 140023259363072] [remote 51.83.3.220:37379] Not Found: /profile/exercise/favorite.ico
+[Fri Jul 24 20:43:50.625830 2020] [wsgi:error] [pid 86112:tid 140023158650624] [remote 218.86.95.118:35999] Not Found: /GponForm/diag_Form
+[Fri Jul 24 20:50:18.637190 2020] [wsgi:error] [pid 86112:tid 140023259363072] [remote 93.117.118.135:19874] excersis = <QuerySet [<Tamrin: \xd8\xaa\xd9\x85\xd8\xb1\xdb\x8c\xd9\x86 \xd8\xb3\xd8\xb1\xdb\x8c \xd8\xa7\xd9\x88\xd9\x84>, <Tamrin: \xd8\xb3\xd8\xb1\xdb\x8c \xd8\xaf\xd9\x88\xd9\x85>, <Tamrin: \xd8\xb3\xd8\xb1\xdb\x8c \xd8\xa7\xd9\x88\xd9\x84>]>
+[Fri Jul 24 20:50:21.400370 2020] [wsgi:error] [pid 86112:tid 140023158650624] [remote 93.117.118.135:19887] Not Found: /profile/exercise/favorite.ico
+[Fri Jul 24 20:50:27.557011 2020] [wsgi:error] [pid 86112:tid 140023259363072] [remote 93.117.118.135:19897] Not Found: /favicon.ico
+[Fri Jul 24 20:52:02.168204 2020] [wsgi:error] [pid 86112:tid 140023158650624] [remote 93.117.118.135:19997] Not Found: /favicon.ico
+[Fri Jul 24 20:52:24.776725 2020] [wsgi:error] [pid 86112:tid 140023158650624] [remote 93.117.118.135:20018] Not Found: /profile/my/favorite.ico
+[Fri Jul 24 20:55:26.322643 2020] [wsgi:error] [pid 86112:tid 140023259363072] [remote 93.117.118.135:20111] excersis = <QuerySet [<Tamrin: \xd8\xaa\xd9\x85\xd8\xb1\xdb\x8c\xd9\x86 \xd8\xb3\xd8\xb1\xdb\x8c \xd8\xa7\xd9\x88\xd9\x84>, <Tamrin: \xd8\xb3\xd8\xb1\xdb\x8c \xd8\xaf\xd9\x88\xd9\x85>, <Tamrin: \xd8\xb3\xd8\xb1\xdb\x8c \xd8\xa7\xd9\x88\xd9\x84>, <Tamrin: \xd8\xaa\xd9\x85\xd8\xb1\xdb\x8c\xd9\x86 \xd8\xb3\xd8\xb1\xdb\x8c \xd8\xb3\xd9\x88\xd9\x85 \xd8\xb1\xdb\x8c\xd8\xa7\xd8\xb6\xdb\x8c \xd8\xa7\xd9\x88\xd9\x84 \xd8\xaf\xd8\xa8\xd8\xb3\xd8\xaa\xd8\xa7\xd9\x86>]>
+[Fri Jul 24 20:59:31.031780 2020] [wsgi:error] [pid 86112:tid 140023158650624] [remote 51.83.3.220:20804] excersis = <QuerySet [<Tamrin: \xd8\xaa\xd9\x85\xd8\xb1\xdb\x8c\xd9\x86 \xd8\xb3\xd8\xb1\xdb\x8c \xd8\xa7\xd9\x88\xd9\x84>, <Tamrin: \xd8\xb3\xd8\xb1\xdb\x8c \xd8\xaf\xd9\x88\xd9\x85>, <Tamrin: \xd8\xb3\xd8\xb1\xdb\x8c \xd8\xa7\xd9\x88\xd9\x84>, <Tamrin: \xd8\xaa\xd9\x85\xd8\xb1\xdb\x8c\xd9\x86 \xd8\xb3\xd8\xb1\xdb\x8c \xd8\xb3\xd9\x88\xd9\x85 \xd8\xb1\xdb\x8c\xd8\xa7\xd8\xb6\xdb\x8c \xd8\xa7\xd9\x88\xd9\x84 \xd8\xaf\xd8\xa8\xd8\xb3\xd8\xaa\xd8\xa7\xd9\x86>]>
