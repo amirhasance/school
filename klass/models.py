@@ -46,7 +46,7 @@ class Dars(models.Model):
     
     name  = models.CharField(max_length = 200)
     passwd = models.CharField(max_length = 20 , unique=True , blank=False , null = False)
-    image = models.ImageField(upload_to='Classes')
+    # image = models.ImageField(upload_to='Classes')
     Time_created = models.DateTimeField(auto_now_add=True)
     students = models.ManyToManyField(Student)
     teacher = models.ForeignKey(Teacher , on_delete=models.CASCADE)

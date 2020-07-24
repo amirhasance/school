@@ -3,7 +3,7 @@
 					<section class="sidebar">
 						<div class="user-panel">
 							<div class="pull-right image">
-								<img src={{student.image.url}} class="img-circle" style="max-width: 60px; height: 60px;" alt="تصویر شما" />
+								<img src={{user.student.image.url}} class="img-circle" style="max-width: 60px; height: 60px;" alt="تصویر شما" />
 							</div>
 							<div class="pull-left info">
 								<p style="font-family:'byekan'">خوش آمدید</p>
@@ -12,35 +12,37 @@
 													</div>
 						<ul class="sidebar-menu">
 							<li>
-								<a href="http://www.sadatmand.ir/profile/my">
+								<a href="/profile/my">
 									<i class="fa fa-dashboard"></i> <span style="font-family:'byekan'" >میز کار</span>
 								</a>
 							</li>
-
-							<li ><a href="?app=liveclass" onclick="return TWSHprocess('index2.php?app=liveclass')">
+							{% comment %} <li ><a href="?app=liveclass" onclick="return TWSHprocess('index2.php?app=liveclass')">
 								<i class="glyphicon ion-android-book"></i> <span style="font-family:'byekan'">کلاس آنلاین</span>
 
 								</a>
 								</li>
+ {% endcomment %}
+								
+								
+								{% for dars in doroos %}
 
-							<li ><a href="?app=liveclass" onclick="return TWSHprocess('index2.php?app=liveclass')">
-								<i class="glyphicon ion-ios7-timer-outline"></i> <span style="font-family:'byekan'">آزمون آنلاین </span>
-
+								<li class="treeview"><a href="" onclick="">
+								<i class="glyphicon ion-android-book"></i> <span style="font-family:'byekan'">{{dars.name}}</span>
+								<i class="fa fa-angle-left pull-left"></i>
 								</a>
-								</li>
-								{% comment %} <li ><a href="?app=azmon" >
-								<i class="glyphicon ion-ios7-timer-outline"></i> <span style="font-family:'byekan'">آزمون آنلاین</span></a>
+								<ul class="treeview-menu"><li ><a href="../exercise/{{dars.id}}" onclick="">
+										<i class="glyphicon ion-ios7-download"></i> <span style="font-family:'byekan'"> تمرین های  {{dars.name}}</span>
 
-								</li> {% endcomment %}
-								<li ><a href="?app=homeworks&view=stud/homeworks" onclick="return TWSHprocess('index2.php?app=homeworks&view=stud/homeworks')">
-								<i class="glyphicon ion-briefcase"></i> <span style="font-family:'byekan'">تکلیف الکترونیک</span>
+										</a>
+										</li><li ><a href="../my_files/{{dars.id}}" onclick="">
+										<i class="glyphicon ion-android-book"></i> <span style="font-family:'byekan'">فایل ها آموزشی  {{dars.name}}</span>
 
-								</a>
-								</li><li ><a href="?app=lessonplan" onclick="return TWSHprocess('index2.php?app=lessonplan')">
-								<i class="glyphicon ion-ios7-bookmarks"></i> <span style="font-family:'byekan'">درسنامه</span>
+										</a>
+										</li></ul></li>
 
-								</a>
-								</li><li class="treeview"><a href="" onclick="jQuery(this).next('ul').slideToggle(); return false;">
+
+										{% endfor %}
+										<li class="treeview"><a href="" onclick="jQuery(this).next('ul').slideToggle(); return false;">
 								<i class="glyphicon ion-navicon-round"></i> <span style="font-family:'byekan'">گزارش تحصیلی و انضباطی</span>
 								<i class="fa fa-angle-left pull-left"></i>
 								</a>
@@ -72,59 +74,15 @@
 										<i class="glyphicon ion-calendar"></i> <span style="font-family:'byekan'">تقویم اجرایی</span>
 
 										</a>
-										</li></ul></li><li class="treeview"><a href="" onclick="jQuery(this).next('ul').slideToggle(); return false;">
-								<i class="glyphicon ion-stats-bars"></i> <span style="font-family:'byekan'">نمودار وضعیت تحصیلی</span>
-								<i class="fa fa-angle-left pull-left"></i>
-								</a>
+										</li></ul></li>
 								<ul class="treeview-menu"><li ><a href="?app=chart&view=showchartw" onclick="return TWSHprocess('index2.php?app=chart&view=showchartw')">
 										<i class="glyphicon ion-pie-graph"></i> <span style="font-family:'byekan'">نمودار نیمسال</span>
 
 										</a>
-										</li></ul></li><li class="treeview"><a href="" onclick="jQuery(this).next('ul').slideToggle(); return false;">
-								<i class="glyphicon ion-load-b"></i> <span style="font-family:'byekan'">مشارکت در سایت</span>
-								<i class="fa fa-angle-left pull-left"></i>
-								</a>
-								<ul class="treeview-menu"><li ><a href="/index2.php?app=forum" target="_self">
-										<i class="glyphicon ion-android-forums"></i> <span style="font-family:'byekan'">انجمن های گفتگو</span>
-
-										</a>
-										</li><li ><a href="?app=elib&view=userbookregister" onclick="">
-										<i class="glyphicon ion-arrow-left-b"></i> <span style="font-family:'byekan'">ثبت کتاب الکترونیک</span>
-
-										</a>
-										</li><li ><a href="?app=content&view=userinscontent" onclick="">
-										<i class="glyphicon ion-android-book"></i> <span style="font-family:'byekan'">ارسال قصه متنی</span>
-
-										</a>
-										</li><li ><a href="?app=articles&view=myarticles" onclick="">
-										<i class="glyphicon ion-ios7-copy"></i> <span style="font-family:'byekan'">مقالات من</span>
-
-										</a>
-										</li><li ><a href="?app=topsites&view=topsites" onclick="">
-										<i class="glyphicon ion-link"></i> <span>معرفی سایت مفید</span>
-
-										</a>
-										</li><li ><a href="?app=gallery&view=userfileupload" onclick="">
-										<i class="glyphicon ion-images"></i> <span style="font-family:'byekan'">ارسال به گالری</span>
-
-										</a>
-										</li><li ><a href="?app=articles&view=sendarticle" onclick="">
-										<i class="glyphicon ion-ios7-upload"></i> <span style="font-family:'byekan'">ارسال مقاله</span>
-
-										</a>
-										</li></ul></li><li class="treeview"><a href="" onclick="">
-								<i class="glyphicon ion-android-book"></i> <span style="font-family:'byekan'">کتابخانه</span>
-								<i class="fa fa-angle-left pull-left"></i>
-								</a>
-								<ul class="treeview-menu"><li ><a href="?app=elib" onclick="">
-										<i class="glyphicon ion-ios7-download"></i> <span>کتابخانه ی الکترونیک</span>
-
-										</a>
-										</li><li ><a href="?app=lib&view=bookslist" onclick="">
-										<i class="glyphicon ion-android-book"></i> <span style="font-family:'byekan'">کتابخانه ی آموزشگاه</span>
-
-										</a>
-										</li></ul></li><li class="treeview"><a href="" onclick="">
+										</li></ul></li>
+										
+										
+										<li class="treeview"><a href="" onclick="">
 								<i class="glyphicon ion-android-mail"></i> <span style="font-family:'byekan'">ارسال پیام</span>
 								<i class="fa fa-angle-left pull-left"></i>
 								</a>
@@ -204,12 +162,13 @@
 								<i class="glyphicon ion-star"></i> <span style="font-family:'byekan'">مسابقه</span>
 
 								</a>
-								</li><li ><a href="?app=polls" onclick="">
+								</li>
+								<li ><a href="?app=polls" onclick="">
 								<i class="glyphicon ion-stats-bars"></i> <span style="font-family:'byekan'">نظرسنجی الکترونیک</span>
 
 								</a>
 								</li>							<li>
-								<a href="http://www.sadatmand.ir/userindex.php?task=logout">
+								<a href="/logout">
 									<i class="fa fa-power-off"></i> <span style="font-family:'byekan'">خروج</span>
 								</a>
 							</li>

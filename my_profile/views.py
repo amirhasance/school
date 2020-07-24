@@ -40,11 +40,41 @@ def teacher(request,template_name = 'my_profile/teacher.html'):
     return render(request , template_name , context)
     
 
-
-
-
 def ajax(request):
     index = request.GET.get('index')
     this_dars = Dars.objects.get(id = index)
     tamrins = Tamrin_serializer( Tamrin.objects.filter(dars = this_dars) , many =True )
     return JsonResponse({'tamrins': tamrins.data})
+
+def exercise(request , template_name='my_profile/exercise.html' , pk=None):
+    pk = pk
+
+    student = Student.objects.get(user = request.user)
+
+    doroos = Dars.objects.filter(students = student)
+    context = {
+        "doroos" : doroos,
+        "student" : student,
+        'pk' : pk,
+    }
+    
+    return render(request , template_name , context)
+
+
+
+@login_required
+def my_files(request , template_name='my_profile/my_files.html' , pk = None):
+    pk = pk
+
+    student = Student.objects.get(user = request.user)
+
+
+    doroos = Dars.objects.filter(students = student)
+    context = {
+        "doroos" : doroos,
+        "student" : student,
+        'pk' : pk,
+    }
+    
+
+    return render(request, template_name , context)
