@@ -8,7 +8,8 @@ urlpatterns = [
     path('' , include('school_home.urls' , namespace='home')  , name = 'home'),
     path('exam/' , include('exam.urls' , namespace='exam') , name = 'exam'),
     path('class/' , include('klass.urls' , namespace='class') , name = 'class'),
-    path('profile/' , include('my_profile.urls', namespace='profile') , name = 'profile')
+    path('profile/' , include('my_profile.urls', namespace='profile') , name = 'profile'),
+    path('teacher/' , include('teacher_profile.urls')),
     
 ]
 

@@ -3,14 +3,25 @@ from .forms import login_Form
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import authenticate , login , logout
+from klass.models import Student , Teacher
+from .methods import student_or_teacher
+
 # Create your views here.
+
+
+        
 
 @csrf_exempt
 def site_login(request ,template_name='login/login.html' ):
    
    form = login_Form(request.POST or None)
    if request.user.is_authenticated :
-       return redirect('/profile/my')
+       if student_or_teacher(request.user) == 'student':
+         return redirect('/profile/my')
+       elif student_or_teacher(request.user) == 'teacher':
+           return redirect('/teacher')
+       else:
+           return HttpResponse('you are not Teacher or Studetn and Dont have permission ')
     #    return redirect('/../profile/')
       
 
@@ -24,7 +35,14 @@ def site_login(request ,template_name='login/login.html' ):
            
            user = authenticate(request=request , username =form.cleaned_data.get('username'),password = form.cleaned_data.get('password')  )
            login(request , user)
-           return redirect('../profile/my')
+           if student_or_teacher(request.user) == 'student':
+              return redirect('/profile/my')
+           elif student_or_teacher(request.user) == 'teacher':
+              return redirect('/teacher')
+           else :
+               return None
+           
+        
        else :
             
             return HttpResponse('form is not valid')

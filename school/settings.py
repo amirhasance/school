@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'online_users',
     'django_cleanup',
     'jalali_date',
+    'teacher_profile',
     
 ]
 
@@ -168,7 +169,7 @@ STATICFILES_DIRS = [
     )
 ]
 
-LOGIN_REDIRECT_URL = '/profile/my'
+# LOGIN_REDIRECT_URL = '/profile/my'
 LOGIN_URL = '/login/'
 
 

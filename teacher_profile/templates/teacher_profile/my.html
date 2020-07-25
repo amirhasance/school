@@ -1,0 +1,165 @@
+{% load static %}
+
+<html lang="en">
+  <head>
+  	<title>Sidebar 04</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href= "{% static  "teacher_profile/css/style.css" %}">
+		<link rel="stylesheet" href= "{% static  "teacher_profile/this.css" %}">
+		 <link rel="stylesheet" type="text/css" href=" {% static "pfont.css"  %}">
+
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+ <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+  </head>
+  <body>
+
+
+		<div class="wrapper d-flex align-items-stretch">
+			<nav id="sidebar" class="order-last" class="img" style="background-color: black;">
+				<div class="custom-menu">
+					<button type="button" id="sidebarCollapse" class="btn btn-primary">
+
+	        </button>
+        </div>
+        <div class="">
+               <center>
+		  		<h3><a href="index.html" class="logo" style='font-family:"byekan"'>{{user.first_name}} <span style='font-family:"byekan"'>{{user.last_name}}</span></a></h3>
+                  </center>
+	        <ul class="list-unstyled components mb-5">
+                 <div align = 'right' >
+
+	          <li class="active">
+
+	            <a href="/" style='font-family:"byekan"'> صفحه اصلی مدرسه <span class="fa fa-home mr-3"></span></a>
+
+	          </li>
+			  <div >
+              {% for dars in doroos %}
+	          <li>
+			  <a href="#" style='font-family:"byekan"'  id = "{{dars.id}}" class="doroos" > {{dars.name}} درس <span class="fa fa-user mr-3"></span></a>
+	          </li>
+              {% endfor %}
+			  </div>
+	          <li>
+
+              <a href="" style='font-family:"byekan"'>کارنامه <span class="fa fa-sticky-note mr-3"></span></a>
+	          </li>
+	          <li>
+              <a href="#" style='font-family:"byekan"'> یک درس دیگر اضافه کن <span class="fa fa-plus mr-3"></span> </a>
+	          </li>
+	          <li>
+              <a href="/logout" style='font-family:"byekan"'> خروج <span class="fa fa-sign-out mr-3"></span></a>
+	          </li>
+</div>
+	        </ul>
+
+	        <div class="mb-5 px-4" align='right'>
+						<h3 class="h6 mb-3" style='font-family:"byekan"'>برای اضافه نمودن درس کد درس را وارد کنید</h3>
+						<form action="#" class="subscribe-form">
+	            <div class="form-group d-flex">
+	            	<div class="icon"><span class="icon-paper-plane"></span></div>
+	              <input type="text" class="form-control" placeholder="کد درس" style='font-family:"byekan"' id = 'btntest'>
+	            </div>
+                <div align = 'right'>
+                <button type="submit" class="btn btn-primary" style='font-family:"byekan"'>اضافه کن</button>
+                </div>
+	          </form>
+					</div>
+
+	        <div class="footer px-4">
+	        	<p>
+						  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
+						</p>
+	        </div>
+
+	      </div>
+
+    	</nav>
+
+
+        <!-- Page Content  -->
+      <div id="content" class="p-4 p-md-5 pt-5">
+
+	  <table class="table " id="ttable">
+       <thead class="thead-dark">
+    <tr>
+
+      <th scope="col" style='font-family:"byekan"'>  آپلود تمرین</th>
+      <th scope="col" style='font-family:"byekan"'> مدت باقیمانده</th>
+      <th scope="col" style='font-family:"byekan"'>فایل تمرین</th>
+      <th scope="col" style='font-family:"byekan"'>سری تمرین</th>
+
+    </tr>
+     <tbody id='ttamrin'>
+
+     </tbody>
+  </thead>
+
+    </table>
+
+</div>
+      </div>
+		</div>
+    <script src=" {% static  "teacher_profile/js/jquery.min.js" %}"></script>
+    <script src=" {% static  "teacher_profile/js/popper.js" %}"></script>
+    <script src=" {% static  "teacher_profile/js/bootstrap.min.js" %}"></script>
+    <script src=" {% static  "teacher_profile/js/main.js" %}"></script>
+    <script type="text/javascript"  src="https://code.jquery.com/jquery-3.2.1.min.js"> </script>
+    
+	<script >
+
+  $(".doroos").click(function () {
+      var index = $(this).attr('id')
+
+      $.ajax({
+        url: '../../profile/ajax/',
+        data: {
+          'index':index
+        },
+        dataType: 'json',
+        success: function (data) {
+
+          var arr = data['tamrins']
+          console.log(arr)
+
+
+           $("#ttamrin").empty()
+          for (var i =0 ; i <arr.length ; i++ )
+          {
+            var t = arr[i]
+
+
+            $("#ttamrin").prepend(
+              `<tr>
+              <th scope="row">انیثبی</td>
+                <td scope="row style='font-family:"byekan" ; font-weight:normal '"> ${new Date(t['time_created']).toLocaleDateString()}</td>
+                 <td scope="row">
+                   <form method="get" action=  ${t['file']}>
+                        <button type="submit" type="button" class="btn btn-info" style='font-family:"byekan" ; font-weight:normal '>دانلود</button>
+                    </form>
+                  </td>
+                <td scope="row" style='font-family:"byekan" ; font-weight:normal '><div> ${t['name']}</div></th>
+                </tr>
+              `
+            )
+
+
+          }
+
+
+        }
+      });
+
+    });
+
+</script>
+  </body>
+</html>

@@ -34,11 +34,12 @@
   {% if not tamrin.is_expired %}
   <center>
 
-   <div class="card">
+   <div class="card" style="background-color:powderblue;">
     
     <div class="container" style='align-items:right'>
+     <h4><b style='font-family:"byekan" ;color:blue;'>{{tamrin.dars }}</b></h4>
       <h4><b style='font-family:"byekan"'>{{tamrin.name  }}</b></h4>
-      <h4><b style='font-family:"byekan"'>{{tamrin.dars }}</b></h4>
+     
       <a href={{tamrin.file.url}}>
       <button type="button" class="btn btn-info" style='font-family:"byekan"' >دانلود</button></a>
        <p style='font-family:"byekan"'>حداکثر مهلت تحویل تمرین</p>

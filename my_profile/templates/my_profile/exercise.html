@@ -17,7 +17,7 @@
  {% load jalali_tags %}
 
 <center>
- <h3 style="font-family: 'byekan';">  تمارین {{dars.name}} </h3>
+ <h3 style="font-family: 'byekan'; color:green;">  تمارین {{dars.name}} </h3>
  </center>
 
   {% for tamrin in tamrins  %}
@@ -44,6 +44,16 @@
          <input type="hidden" id="custId" name="tamrin" value="{{tamrin.id}}">
          
          <input type="submit" value="فرستادن">
+
+    <script type="text/javascript">
+        $('#id_file').bind('change', function() {
+          if (this.files[0].size/1000000 > 200){
+            alert('حجم فایل انتخابی بسیار زباد است');
+            this.files[0] = null;
+          }
+            
+        });
+    </script>
       </form>
         {% endif %}
       
