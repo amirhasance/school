@@ -28,16 +28,24 @@
     
     <div class="container" style='align-items:right'>
       <h4><b style='font-family:"byekan"'>{{tamrin.name  }}</b></h4>
+  
       <a href={{tamrin.file.url}}>
       <button type="button" class="btn btn-info" style='font-family:"byekan"' >دانلود</button></a>
+      {% if tamrin.is_solved %}
+
+      <h4 style="font-family:'byekan'; color:green">تمرین برای تصحیح تحویل داده شده </h4>
+     
+      {% else %}
        <p style='font-family:"byekan"'>حداکثر مهلت تحویل تمرین</p>
       <p>{{tamrin.time_expire|to_jalali:'%m/%d  %H:%M'}}</p>
-      <form method='post'>
-         {% csrf_token %}
-         {{form.as_p}}
+      <form method='post'  enctype="multipart/form-data">
+
+         {{form.file}}
+         <input type="hidden" id="custId" name="tamrin" value="{{tamrin.id}}">
+         
          <input type="submit" value="فرستادن">
       </form>
-
+        {% endif %}
       
     </div>
   </div>

@@ -80,6 +80,8 @@ class Tamrin(models.Model):
     def is_expired(self):
         return timezone.now() > self.time_expire
     
+    def is_solved(self):
+        pass
     
 
                                                  

@@ -8,6 +8,7 @@ from django.utils.safestring import mark_safe
 import json
 from django.http import JsonResponse
 from klass.models import Tamrin , Dars
+from django.views.decorators.csrf import csrf_protect , csrf_exempt
 from klass.serializers import Dars_serializer , Tamrin_serializer
 # Create your views here.
 @login_required
@@ -47,24 +48,39 @@ def ajax(request):
     tamrins = Tamrin_serializer( Tamrin.objects.filter(dars = this_dars) , many =True )
     return JsonResponse({'tamrins': tamrins.data})
 
+from .models import Answer_of_Tamrin_for_every_student
+@csrf_exempt
 def exercise(request , template_name='my_profile/exercise.html' , pk=None):
     pk = pk
-    # form = Tamrin_Form(request.POST or None  )
+    student = Student.objects.get(user = request.user)
+    form = Tamrin_Form(request.POST or None  , request.FILES or None )
 
-    # if request.method == "POST":
-    #     print(f'request is post')
-    #     import pdb ; pdb.set_trace()
-    #     if form.is_valid():
-    #         import pdb ; pdb.set_trace()
-    #         return HttpResponse('form is valid')
+    if request.method == "POST":
+        print(f'request is post')
+        
+        if form.is_valid():
+            file = form.cleaned_data['file']
+            tamrin_id = form.cleaned_data['tamrin']
+            tamrin = Tamrin.objects.get(id= tamrin_id)
+            ans = Answer_of_Tamrin_for_every_student.objects.create(file = file , tamrin = tamrin , student =student)
+            
+            
+
+            return HttpResponse('تمرین برای تصحیح تحویل داده شد')
 
     # this pk is for this Dars
-    student = Student.objects.get(user = request.user)
+    
     
     dars = Dars.objects.get(id = pk)
     tamrins = Tamrin.objects.filter(dars = dars)
+    for tamrin in tamrins:
+        if Answer_of_Tamrin_for_every_student.objects.filter(student = student , tamrin = tamrin).exists():
+            tamrin.is_solved = True
+        else :
+            tamrin.is_solved = False
 
     doroos = Dars.objects.filter(students = student)
+
     context = {
         "doroos" : doroos,
         'form': form,
@@ -72,11 +88,8 @@ def exercise(request , template_name='my_profile/exercise.html' , pk=None):
         'tamrins' : tamrins ,
         "student" : student,
         'pk' : pk,
-    }
-    
+    }  
     return render(request , template_name , context)
-
-
 
 @login_required
 def my_files(request , template_name='my_profile/my_files.html' , pk = None):
@@ -99,7 +112,7 @@ def my_files(request , template_name='my_profile/my_files.html' , pk = None):
 
 
 def form_html(request , template_name= 'my_profile/form.html'):
-    form = Tamrin_Form(request.POST or None)
+    form = Tamrin_Form(request.POST or None , request.FILES or None)
     if request.method == "POST":
         if form.is_valid():
             return HttpResponse('form is valid')
