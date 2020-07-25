@@ -57,6 +57,13 @@
    <div class="card">
     {% comment %} <img src="{{user.student.image.url}}" alt="Avatar" style="width:10%"> {% endcomment %}
     <h4 style="color:red ; font-family:'byekan'">مهلت ارسال ب پایان رسیده</h4>
+    {% if tamrin.is_solved %}
+      <h4 style="font-family:'byekan'; color:green">تمرین برای تصحیح تحویل داده شده </h4>
+     
+    {% else %}
+      <h4 style="font-family:'byekan'; color:red">شما این تمرین را انجام ندادید </h4>
+    
+    {% endif %}
     <div class="container" style='align-items:right'>
       <h4><b style='font-family:"byekan"'>{{tamrin.name  }}</b></h4>
       <a href={{tamrin.file.url}}>
