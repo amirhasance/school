@@ -56,7 +56,7 @@ class Dars(models.Model):
 
     def __str__(self):
         return self.name
-
+from django.utils import timezone
 
 class Tamrin(models.Model):
 
@@ -74,8 +74,11 @@ class Tamrin(models.Model):
         return self.name
 
     class Meta:
-        ordering = ('time_created',)
+        ordering = ('-time_expire',)
         verbose_name_plural = 'تمارین   '
+
+    def is_expired(self):
+        return timezone.now() > self.time_expire
     
     
 

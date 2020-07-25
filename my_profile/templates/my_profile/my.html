@@ -1,6 +1,24 @@
 {% extends "my_profile/base.html" %}
 
 {% block content %}
+
+<style>
+ .card {
+        /* Add shadows to create the "card" effect */
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+      }
+      
+      /* On mouse-over, add a deeper shadow */
+      .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+      }
+      
+      /* Add some padding inside the card container */
+      .container {
+        padding: 2px 16px;
+      }
+</style>
   <script> 
   
 
@@ -9,7 +27,31 @@
 
    </script>
 
-  <p style='font-family:"byekan"'> آخرین تمرین ها و ددلاین ها </p>
+  {% load jalali_tags %}
+
+
+  {% for tamrin in tamrins  %}
+  {% if not tamrin.is_expired %}
+  <center>
+
+   <div class="card">
+    
+    <div class="container" style='align-items:right'>
+      <h4><b style='font-family:"byekan"'>{{tamrin.name  }}</b></h4>
+      <h4><b style='font-family:"byekan"'>{{tamrin.dars }}</b></h4>
+      <a href={{tamrin.file.url}}>
+      <button type="button" class="btn btn-info" style='font-family:"byekan"' >دانلود</button></a>
+       <p style='font-family:"byekan"'>حداکثر مهلت تحویل تمرین</p>
+      <p>{{tamrin.time_expire|to_jalali:'%m/%d  %H:%M'}}</p>
+
+      
+    </div>
+  </div>
+</center>
+{% endif %}
+{% endfor %}
+
+
 
 
 {% endblock content %}
