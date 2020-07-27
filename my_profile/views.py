@@ -105,7 +105,8 @@ def my_files(request , template_name='my_profile/my_files.html' , pk = None):
         "doroos" : doroos,
         "student" : student,
         'pk' : pk,
-        'files' : files
+        'files' : files,
+        'dars' : dars,
     }
     
 

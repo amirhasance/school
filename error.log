@@ -815,3 +815,51 @@ Exception ignored in: <function Local.__del__ at 0x7fc41ff53550>
 Traceback (most recent call last):
   File "/home/amir/school/venv/lib/python3.8/site-packages/asgiref/local.py", line 96, in __del__
 NameError: name 'TypeError' is not defined
+[Mon Jul 27 19:02:04.906714 2020] [wsgi:error] [pid 6122:tid 140500635109120] [remote 185.221.134.234:64309] Not Found: /robots.txt
+[Mon Jul 27 19:51:27.384645 2020] [wsgi:error] [pid 6122:tid 140500719036160] [remote 37.59.167.24:46426] Not Found: /favicon.ico
+[Mon Jul 27 21:21:16.210888 2020] [wsgi:error] [pid 6122:tid 140500719036160] [remote 93.117.124.222:16118] Not Found: /teacher/files/favorite.ico
+[Mon Jul 27 21:25:04.170601 2020] [wsgi:error] [pid 6122:tid 140500635109120] [remote 93.117.124.222:16327] Not Found: /teacher/files/index2.php
+[Mon Jul 27 21:25:06.558804 2020] [wsgi:error] [pid 6122:tid 140500719036160] [remote 93.117.124.222:16328] Not Found: /teacher/files/index2.php
+[Mon Jul 27 21:27:48.729887 2020] [wsgi:error] [pid 6122:tid 140500635109120] [remote 93.117.124.222:16483] teacher1
+[Mon Jul 27 21:27:48.729952 2020] [wsgi:error] [pid 6122:tid 140500635109120] [remote 93.117.124.222:16483] teacher1
+[Mon Jul 27 21:28:16.305612 2020] [wsgi:error] [pid 6122:tid 140500635109120] [remote 93.117.124.222:16490] elahe
+[Mon Jul 27 21:28:16.305673 2020] [wsgi:error] [pid 6122:tid 140500635109120] [remote 93.117.124.222:16490] sadeghi123
+[Mon Jul 27 21:28:19.921858 2020] [wsgi:error] [pid 6122:tid 140500719036160] [remote 93.117.124.222:16490] Not Found: /profile/my/favorite.ico
+[Mon Jul 27 21:28:32.976232 2020] [wsgi:error] [pid 6122:tid 140500719036160] [remote 93.117.124.222:16499] Not Found: /profile/exercise/favorite.ico
+[Mon Jul 27 21:53:18.599177 2020] [wsgi:error] [pid 6122:tid 140500635109120] [remote 45.130.178.118:33221] Not Found: /favicon.ico
+[Mon Jul 27 21:53:56.682675 2020] [wsgi:error] [pid 6122:tid 140500719036160] [remote 45.130.178.118:33229] teacher1
+[Mon Jul 27 21:53:56.682749 2020] [wsgi:error] [pid 6122:tid 140500719036160] [remote 45.130.178.118:33229] teacher1
+[Mon Jul 27 21:54:02.447568 2020] [wsgi:error] [pid 6122:tid 140500635109120] [remote 45.130.178.118:33231] Not Found: /teacher/favorite.ico
+[Mon Jul 27 21:54:53.885172 2020] [wsgi:error] [pid 6122:tid 140500635109120] [remote 45.130.178.118:33235] Not Found: /teacher/excercise/favorite.ico
+[Mon Jul 27 21:55:23.272314 2020] [wsgi:error] [pid 6122:tid 140500719036160] [remote 45.130.178.118:48266] Not Found: /teacher/favorite.ico
+[Mon Jul 27 21:55:42.696202 2020] [wsgi:error] [pid 6122:tid 140500719036160] [remote 45.130.178.118:33238] Not Found: /teacher/files/favorite.ico
+[Mon Jul 27 23:32:39.153527 2020] [wsgi:error] [pid 6122:tid 140500635109120] [remote 192.241.209.46:33842] Not Found: /portal/redlion
+[Mon Jul 27 23:53:34.033414 2020] [wsgi:error] [pid 6122:tid 140500719036160] [remote 192.241.214.134:53662] Not Found: /manager/html
+[Tue Jul 28 00:38:13.661257 2020] [wsgi:error] [pid 6122:tid 140500719036160] [remote 93.117.124.222:21013] Not Found: /favicon.ico
+[Tue Jul 28 00:38:25.415534 2020] [wsgi:error] [pid 6122:tid 140500635109120] [remote 93.117.124.222:21040] Not Found: /teacher/excercise/favorite.ico
+[Tue Jul 28 00:38:37.481699 2020] [wsgi:error] [pid 6122:tid 140500635109120] [remote 93.117.124.222:21040] Not Found: /teacher/favorite.ico
+[Tue Jul 28 00:38:39.536330 2020] [wsgi:error] [pid 6122:tid 140500635109120] [remote 93.117.124.222:21044] Not Found: /teacher/favorite.ico
+[Tue Jul 28 02:11:47.307877 2020] [wsgi:error] [pid 6122:tid 140500719036160] [remote 5.126.119.228:18911] Internal Server Error: /profile/my/
+[Tue Jul 28 02:11:47.307936 2020] [wsgi:error] [pid 6122:tid 140500719036160] [remote 5.126.119.228:18911] Traceback (most recent call last):
+[Tue Jul 28 02:11:47.307942 2020] [wsgi:error] [pid 6122:tid 140500719036160] [remote 5.126.119.228:18911]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+[Tue Jul 28 02:11:47.307947 2020] [wsgi:error] [pid 6122:tid 140500719036160] [remote 5.126.119.228:18911]     response = get_response(request)
+[Tue Jul 28 02:11:47.307951 2020] [wsgi:error] [pid 6122:tid 140500719036160] [remote 5.126.119.228:18911]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+[Tue Jul 28 02:11:47.307956 2020] [wsgi:error] [pid 6122:tid 140500719036160] [remote 5.126.119.228:18911]     response = self.process_exception_by_middleware(e, request)
+[Tue Jul 28 02:11:47.307960 2020] [wsgi:error] [pid 6122:tid 140500719036160] [remote 5.126.119.228:18911]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+[Tue Jul 28 02:11:47.307967 2020] [wsgi:error] [pid 6122:tid 140500719036160] [remote 5.126.119.228:18911]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Tue Jul 28 02:11:47.307972 2020] [wsgi:error] [pid 6122:tid 140500719036160] [remote 5.126.119.228:18911]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+[Tue Jul 28 02:11:47.307976 2020] [wsgi:error] [pid 6122:tid 140500719036160] [remote 5.126.119.228:18911]     return view_func(request, *args, **kwargs)
+[Tue Jul 28 02:11:47.307980 2020] [wsgi:error] [pid 6122:tid 140500719036160] [remote 5.126.119.228:18911]   File "/home/amir/school/my_profile/views.py", line 18, in my
+[Tue Jul 28 02:11:47.307984 2020] [wsgi:error] [pid 6122:tid 140500719036160] [remote 5.126.119.228:18911]     student = Student.objects.get(user = request.user)
+[Tue Jul 28 02:11:47.307988 2020] [wsgi:error] [pid 6122:tid 140500719036160] [remote 5.126.119.228:18911]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+[Tue Jul 28 02:11:47.307993 2020] [wsgi:error] [pid 6122:tid 140500719036160] [remote 5.126.119.228:18911]     return getattr(self.get_queryset(), name)(*args, **kwargs)
+[Tue Jul 28 02:11:47.308011 2020] [wsgi:error] [pid 6122:tid 140500719036160] [remote 5.126.119.228:18911]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/db/models/query.py", line 415, in get
+[Tue Jul 28 02:11:47.308015 2020] [wsgi:error] [pid 6122:tid 140500719036160] [remote 5.126.119.228:18911]     raise self.model.DoesNotExist(
+[Tue Jul 28 02:11:47.308018 2020] [wsgi:error] [pid 6122:tid 140500719036160] [remote 5.126.119.228:18911] klass.models.Student.DoesNotExist: Student matching query does not exist.
+[Tue Jul 28 02:12:45.633399 2020] [wsgi:error] [pid 6122:tid 140500719036160] [remote 5.126.119.228:19640] Not Found: /favicon.ico
+[Tue Jul 28 02:12:57.968472 2020] [wsgi:error] [pid 6122:tid 140500635109120] [remote 5.126.119.228:19651] amirhasan
+[Tue Jul 28 02:12:57.968527 2020] [wsgi:error] [pid 6122:tid 140500635109120] [remote 5.126.119.228:19651] sadatmand
+[Tue Jul 28 02:13:00.800715 2020] [wsgi:error] [pid 6122:tid 140500719036160] [remote 5.126.119.228:19652] Not Found: /profile/my/favorite.ico
+[Tue Jul 28 02:13:09.863530 2020] [wsgi:error] [pid 6122:tid 140500635109120] [remote 5.126.119.228:19655] Not Found: /profile/exercise/favorite.ico
+[Tue Jul 28 02:13:15.124072 2020] [wsgi:error] [pid 6122:tid 140500719036160] [remote 5.126.119.228:20373] Not Found: /profile/my_files/favorite.ico
+[Tue Jul 28 02:14:47.804819 2020] [wsgi:error] [pid 6122:tid 140500719036160] [remote 5.126.119.228:20378] Not Found: /teacher/files/favorite.ico
