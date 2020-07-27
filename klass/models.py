@@ -85,4 +85,14 @@ class Tamrin(models.Model):
     
 
                                                  
+class File_teacher(models.Model):
+    name = models.CharField(max_length=300)
+    dars = models.ForeignKey(Dars , on_delete=models.CASCADE)
+    file = models.FileField(upload_to='klass/Files_teacher')
+    time = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        ordering = ('-time' , )
+
+    def __str__(self):
+        return self.name

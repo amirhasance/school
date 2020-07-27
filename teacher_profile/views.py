@@ -1,13 +1,14 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
-from klass.models import Student , Teacher , Dars , Tamrin
+from klass.models import Student , Teacher , Tamrin , Dars , File_teacher
 from django.contrib.auth.models import User
 import json
 from django.http import JsonResponse
-from klass.models import Tamrin , Dars
 from django.views.decorators.csrf import csrf_protect , csrf_exempt
-from .forms import Create_Tamrin_Form
+from .forms import Create_Tamrin_Form , File_teacher_form
+from django.shortcuts import get_object_or_404 , redirect
+
 # Create your views here.
 
 @login_required
@@ -60,14 +61,55 @@ def excercise(request, template_name='teacher_profile/excercise.html' , pk = Non
 
 @login_required
 def files(request, template_name='teacher_profile/files.html' , pk = None):
-
+    #pk is the id of Dars for showing its files 
+    dars = get_object_or_404(Dars , id = pk)
+    teacher = Teacher.objects.get(user =request.user)
+    files = File_teacher.objects.filter(dars =dars)
+    doroos = Dars.objects.filter(teacher = teacher)
+    form = File_teacher_form(request.POST or None , request.FILES or None)
     
 
+    if request.method == 'POST':
+        if form.is_valid():
+            file = form.cleaned_data['file']
+            name = form.cleaned_data['name']
+            File_teacher.objects.create(name =name , file = file , dars = dars )
+            return redirect(f'/teacher/files/{pk}')
 
 
     data = {
+        'files':files,
+         'doroos' : doroos,
+          'form' : form,
+          'dars' : dars,
+
+    }
+
+    return render(request , template_name , data)
 
 
+
+
+@login_required
+@csrf_exempt
+def files_create_new(request , template_name='teacher_profile/files_create_new.html' , pk = None):
+    dars = get_object_or_404(Dars , id = pk)
+    teacher = Teacher.objects.get(user =request.user)
+    # files = File_teacher.objects.filter(dars =dars)
+    # doroos = Dars.objects.filter(teacher = teacher)
+    form = File_teacher_form(request.POST or None , request.FILES or None)
+    
+    if request.method == 'POST':
+        if form.is_valid():
+            file = form.cleaned_data['file']
+            name = form.cleaned_data['name']
+            File_teacher.objects.create(name =name , file = file , dars = dars )
+            return redirect(f'/teacher/files/{pk}')
+    
+
+    data ={
+        'form': form,
+        'dars' : dars,
     }
 
     return render(request , template_name , data)
@@ -78,12 +120,6 @@ def files(request, template_name='teacher_profile/files.html' , pk = None):
 
 
 
-
-
-
-
-
-from django.shortcuts import get_object_or_404 , redirect
 
 @login_required
 @csrf_exempt

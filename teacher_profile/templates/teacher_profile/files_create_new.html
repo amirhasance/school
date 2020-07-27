@@ -1,0 +1,12 @@
+{% load static %}
+<center>
+    <link rel="stylesheet" type="text/css" href=" {% static "pfont.css"  %}">
+
+    <p>{{dars.name}}</p>
+<form method="POST" enctype="multipart/form-data" >
+
+ {{form.as_p}}
+ <button type="submit" class="btn btn-primary mb-2" style="font-family: 'byekan';">تایید و فرستادن</button>
+
+</form>
+</center>

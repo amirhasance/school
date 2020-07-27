@@ -1,6 +1,6 @@
 
 from django import forms
-from klass.models import Tamrin
+from klass.models import Tamrin  , File_teacher
 from jalali_date.fields import JalaliDateField, SplitJalaliDateTimeField
 from jalali_date.widgets import AdminJalaliDateWidget, AdminSplitJalaliDateTime
 from django.utils.translation import gettext as _
@@ -22,3 +22,8 @@ class Create_Tamrin_Form(forms.ModelForm):
         self.fields['time_expire'] = SplitJalaliDateTimeField(label=_('date time'), 
             widget=AdminSplitJalaliDateTime # required, for decompress DatetimeField to JalaliDateField and JalaliTimeField
         )
+
+class File_teacher_form(forms.ModelForm):
+    class Meta:
+        model = File_teacher
+        fields = ['name' , 'file' ,]

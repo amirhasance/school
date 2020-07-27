@@ -1,7 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render ,get_object_or_404 
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
-from klass.models import Student , Teacher , Dars , Tamrin
+from klass.models import Student , Teacher , Dars , Tamrin , File_teacher
 from django.contrib.auth.models import User
 from .forms import Tamrin_Form
 from django.utils.safestring import mark_safe
@@ -91,18 +91,21 @@ def exercise(request , template_name='my_profile/exercise.html' , pk=None):
     }  
     return render(request , template_name , context)
 
+
 @login_required
 def my_files(request , template_name='my_profile/my_files.html' , pk = None):
-    pk = pk
-
+  
     student = Student.objects.get(user = request.user)
-
-
+    dars = get_object_or_404(Dars , id = pk)
     doroos = Dars.objects.filter(students = student)
+    
+    files = File_teacher.objects.filter(dars  = dars)
+    
     context = {
         "doroos" : doroos,
         "student" : student,
         'pk' : pk,
+        'files' : files
     }
     
 
