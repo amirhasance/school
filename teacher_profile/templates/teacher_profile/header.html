@@ -1,0 +1,59 @@
+{% load static %}
+<header class="header">
+								<a href="/" class="logo" style="font-family:'byekan'">
+						<span class="fa fa-home" ></span>
+						بازگشت به سایت
+					</a>
+								<nav class="navbar navbar-static-top" role="navigation">
+				<div class="navbar-right">
+					<ul class="nav navbar-nav">
+													<li data-toggle="tooltip" data-placement="bottom" title="منو">
+								<a href="#" class="sidebar-toggle" data-toggle="offcanvas">
+									<span class="fa fa-align-justify"></span>
+								</a>
+							</li>
+							<li data-toggle="tooltip" data-placement="bottom" title="میز کار">
+								<a class="pull-left" href="?app=profile" ><span class="fa fa-th"></span></a>
+							</li>
+													<li class="dropdown messages-menu" data-toggle="tooltip" data-placement="bottom" title="صندوق پیام">
+																<a href="" style="padding: 16px 11px 14px 9px;" >
+									<i class="glyphicon ion-android-mail"></i>
+																	</a>
+															</li>
+																			<li class="dropdown user user-menu" data-toggle="tooltip" data-placement="bottom" title="مشخصات کاربری" >
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="padding: 10px 3px;;">
+								<img src={{user.teacher.image.url}} class="img-circle" style="width: 20px !important; height: 28px !important;"  />								<span><i class="caret"></i></span>
+							</a>
+							<ul class="dropdown-menu">
+								<li class="user-header bg-light-blue" >
+									<img src={{user.teacher.image.url}} class="img-circle" style="width: 30% !important; height: 60% !important;" alt="تصویر شما" />
+									<p>
+										{{user.teacher}} - معلم گرامی
+
+									</p>
+								</li>
+								<li class="user-body">
+																			<div class="col-xs-8 text-right" style="white-space: nowrap;">
+											<a href="" style="font-family:'byekan'">تغییر کلمه ی عبور</a>
+										</div>
+																	</li>
+								<li class="user-footer">
+																			<div class="">
+											<a href="/" class="btn btn-flat bg-olive pull-right" style="margin-bottom: 3px;"><span class="fa fa-user"></span> </a>
+										</div>
+																			<div class="pull-left">
+										<a href="/logout" class="btn btn-danger btn-flat" style="font-family:'byekan'"><span class="fa fa-power-off"></span> خروج</a>
+									</div>
+								</li>
+							</ul>
+						</li>
+													<li data-toggle="tooltip" data-placement="bottom" title="خروج">
+								<a class="pull-left" href="/logout" style="padding-top: 17px;" ><span class="fa fa-power-off" style="color: white;"></span></a>
+							</li>
+															{% comment %} <li data-toggle="tooltip" data-placement="bottom" title="دانلود اپلیکیشن موبایل">
+									<a class="pull-left" href="http://www.twsh.ir/Pooyan_Smart.apk?4132" target="_blank" ><img src=" {% static "/templates/userindex/img/android32.png" %} " style="width: 18px;"/></a>
+								</li> {% endcomment %}
+																		</ul>
+				</div>
+			</nav>
+		</header>

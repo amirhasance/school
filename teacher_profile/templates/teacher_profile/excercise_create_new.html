@@ -1,0 +1,33 @@
+{% load static %}
+
+<head>
+    <link rel="stylesheet" type="text/css" href=" {% static "pfont.css"  %}">
+    <link rel="stylesheet" href="{% static 'admin/jquery.ui.datepicker.jalali/themes/base/jquery-ui.min.css' %}">
+		<script src="{% static 'admin/js/django_jalali.min.js' %}"></script>
+</head>
+{% load jalali_tags %}
+<center>
+{{dars}}
+
+
+<form method="POST" enctype="multipart/form-data">
+{% csrf_token %}
+
+
+{{form.name}} 
+<label for="id_name" style="font-family: 'byekan';">نام  تمرین</label>
+
+<br />
+
+<label for="id_time_expire_0">تاریخ دقیق تحویل</label>
+{{form.time_expire}}
+<br>
+<label for="id_file">فایل مورد نظر را انتخاب کنید</label>
+<br>
+{{form.file}}
+<br>
+
+<button type="submit" class="btn btn-primary mb-2" style="font-family: 'byekan';">تایید و فرستادن</button>
+
+</form>
+</center>   
