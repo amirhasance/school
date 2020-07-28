@@ -42,7 +42,7 @@
       <h4><b style='font-family:"byekan"'>{{tamrin.name  }}</b></h4>
   
       <a href={{tamrin.file.url}}>
-      <button type="button" class="btn btn-info" style='font-family:"byekan"' >دانلود</button></a>
+      <button type="button" class="btn btn-primary" style='font-family:"byekan"' >دانلود</button></a>
       
      
       
@@ -67,9 +67,10 @@
     </script>
       </form> {% endcomment %}
        <p>
-      {% if tamrin.is_expired %}
-         <button type="button" class="btn btn-danger" style='font-family:"byekan"' > مهلت تمرین ب پایان رسیده</button>
-      {% endif %}
+      {% comment %} {% if tamrin.is_expired %} {% endcomment %}
+       <a href = "/teacher/tamrin_answers/{{tamrin.id}}">
+         <button type="button" class="btn btn-info" style='font-family:"byekan"' > دریافت پاسخ های فرستاده شده</button> </a>
+      {% comment %} {% endif %} {% endcomment %}
         
       </p>
     </div>

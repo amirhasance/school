@@ -8,6 +8,8 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_protect , csrf_exempt
 from .forms import Create_Tamrin_Form , File_teacher_form
 from django.shortcuts import get_object_or_404 , redirect
+from my_profile.models import Answer_of_Tamrin_for_every_student
+
 
 # Create your views here.
 
@@ -95,24 +97,35 @@ def files(request, template_name='teacher_profile/files.html' , pk = None):
 def files_create_new(request , template_name='teacher_profile/files_create_new.html' , pk = None):
     dars = get_object_or_404(Dars , id = pk)
     teacher = Teacher.objects.get(user =request.user)
-    # files = File_teacher.objects.filter(dars =dars)
-    # doroos = Dars.objects.filter(teacher = teacher)
-    form = File_teacher_form(request.POST or None , request.FILES or None)
+    # # files = File_teacher.objects.filter(dars =dars)
+    # # doroos = Dars.objects.filter(teacher = teacher)
     
-    if request.method == 'POST':
-        if form.is_valid():
-            file = form.cleaned_data['file']
-            name = form.cleaned_data['name']
-            File_teacher.objects.create(name =name , file = file , dars = dars )
-            return redirect(f'/teacher/files/{pk}')
     
+    # if request.method == 'POST':
+    #     if form.is_valid():
+    #         file = form.cleaned_data['file']
+    #         name = form.cleaned_data['name']
+    #         File_teacher.objects.create(name =name , file = file , dars = dars )
+    #         return redirect(f'/teacher/files/{pk}')
+    dars = get_object_or_404(Dars , id = pk)
 
     data ={
-        'form': form,
+        
         'dars' : dars,
     }
 
-    return render(request , template_name , data)
+    # return render(request , template_name , data)
+    ###############################################################
+    if request.method == "POST":
+    
+        file = request.FILES['file']
+        name = request.POST['name']
+        File_teacher.objects.create(name = name , file = file , dars = dars)
+        # import pdb ; pdb.set_trace()
+        
+
+        return JsonResponse({'message': f'{file.name} uploaded'}  , status=200)
+    return render(request , template_name  , data)
 
 
 
@@ -189,3 +202,29 @@ def excercise_edit(request , template_name='teacher_profile/excercise_edit.html'
 
 
     return render(request , template_name , data)
+
+@login_required
+def tamrin_answers(request , template_name='teacher_profile/tamrin_answers.html' , pk=None):
+
+    teacher = get_object_or_404( Teacher,user =request.user)
+    doroos = Dars.objects.filter(teacher = teacher)
+    tamrin = get_object_or_404(Tamrin , id = pk , dars__teacher = teacher)
+    
+    answers = Answer_of_Tamrin_for_every_student.objects.filter(tamrin = tamrin)
+    s = list(Student.objects.all())
+    # students_dont_send_answer = Student.objects.exclude()
+    
+    data ={
+        'teacher' : teacher,
+        # 'dars'    :     dars ,
+        'doroos'  :  doroos ,
+        'answers'     : answers,
+        'tamrin'   : tamrin,
+
+    }
+    return render(request , template_name , data)
+
+
+    
+
+    

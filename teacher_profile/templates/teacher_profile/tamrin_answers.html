@@ -1,0 +1,40 @@
+{% extends "teacher_profile/base.html" %}
+ 
+ <style>
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+      }
+      .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+      }
+      .container {
+        padding: 2px 16px;
+      }
+</style>
+
+{% block content %}
+<center>
+ <h3 style="font-family: 'byekan'; color:green;">  پاسخ تمارین {{tamrin.name}} </h3>
+ </center>
+
+{% for answer in answers %}
+
+<div class="card">
+   <center>
+    <div class="container" style='align-items:right'>
+        <h4><b style='font-family:"byekan"'> پاسخ {{answer.student  }}</b></h4>
+    
+        <a href={{answer.file.url}}>
+        <button type="button" class="btn btn-info" style='font-family:"byekan"' >دانلود</button></a>
+
+        </center>
+        
+
+</div>
+ 
+  
+{% endfor %}
+
+{% endblock content %}
+

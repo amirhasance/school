@@ -29,10 +29,6 @@ def site_login(request ,template_name='login/login.html' ):
    if request.method == 'POST':
        if form.is_valid() : 
            
-           print(form.cleaned_data.get('username'))
-           print(form.cleaned_data.get('password'))
-          
-           
            user = authenticate(request=request , username =form.cleaned_data.get('username'),password = form.cleaned_data.get('password')  )
            login(request , user)
            if student_or_teacher(request.user) == 'student':
@@ -92,19 +88,4 @@ def tlogin(request , template_name='login/tlogin.html'):
 
 
 
-
-def alogin(request , template_name='login/alogin.html'):
-   form = login_Form(request.POST or None)
-   if request.method == 'POST':
-       if form.is_valid() : 
-           print(form.cleaned_data.get('username'))
-           print(form.cleaned_data.get('password'))
-           return HttpResponse('from is valid')
-           #set session and anothers for a student
-
-       else :
-            return HttpResponse('form is not valid')
-   else :
-        return render(request , template_name , {'form' : form})
-    
 

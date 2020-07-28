@@ -1,4 +1,4 @@
-from django.shortcuts import render ,get_object_or_404 
+from django.shortcuts import render ,get_object_or_404  , redirect
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from klass.models import Student , Teacher , Dars , Tamrin , File_teacher
@@ -66,7 +66,7 @@ def exercise(request , template_name='my_profile/exercise.html' , pk=None):
             
             
 
-            return HttpResponse('تمرین برای تصحیح تحویل داده شد')
+            return redirect(f'/profile/excercise/{pk}')
 
     # this pk is for this Dars
     
@@ -126,3 +126,7 @@ def form_html(request , template_name= 'my_profile/form.html'):
     data = {}
     data['form'] = form
     return render(request , template_name , data)
+
+
+
+

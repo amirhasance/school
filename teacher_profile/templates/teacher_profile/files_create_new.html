@@ -1,12 +1,232 @@
-{% load static %}
+{% comment %} {% load static %}
 <center>
     <link rel="stylesheet" type="text/css" href=" {% static "pfont.css"  %}">
 
-    <p>{{dars.name}}</p>
-<form method="POST" enctype="multipart/form-data" >
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
- {{form.as_p}}
+<!-- JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+    <p style="font-family: 'byekan';">{{dars.name}}</p>
+    
+<form method="POST" enctype="multipart/form-data" >
+{{form.name}}
+<label for="id_name" style="font-family: 'byekan';">نام تمرین</label>
+
+ <br />
+ {{form.file}}
+<label for="id_name" style="font-family: 'byekan';">فایل تمرین</label>
+
+ <br />
+ <br />
  <button type="submit" class="btn btn-primary mb-2" style="font-family: 'byekan';">تایید و فرستادن</button>
 
 </form>
-</center>
+<script>
+ document.querySelector('#id_name').focus();
+</script>
+</center> {% endcomment %}
+
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>Upload Video</title>
+  </head>
+  <body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="mb-3 mt-3">
+                    <h2 class="mb-3" style='font-weight:300'>{{dars.name}} </h2>
+
+
+<div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="" aria-label="Recipient's username" aria-describedby="basic-addon2" id='tamrin_name'>
+    <div class="input-group-append">
+      <span class="input-group-text" id="basic-addon2">نام فایل</span>
+    </div>
+  </div>
+
+               <div class="form-group mb-3">
+                   <div class="custom-file">
+                       <input type="file" class='custom-file-input' id='file_input' , oninput="input_filename();">
+                       <label for="file_input" id='file_input_label' class='custom-file-label'>Select File</label>
+                   </div>
+               </div>
+
+               <button onclick="upload('{{request.url}}')" id='upload_btn' class='btn btn-primary'>Upload File</button>
+                <button class="btn btn-info d-none" id='loading_btn' type='button' >
+                    <span class='spinner-border spinner-border-sm' role="status" aria-hidden="true"></span>
+                    Uploading ... 
+                </button>
+                <button class="btn btn-secondary d-none" id='cancel_btn' type='button'>Cancel</button>
+                </div>
+                <div id="progress_wrapper" class=''>
+                <label for="" id=progress_status>50% uploaded</label>
+                <div class="progress mb-3">
+                    <div class="progress-bar" id='progress' role='progressbar' style='width : 0%'  aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>  
+                </div>
+                <div id='alert_wrapper'></div>
+            </div>
+        </div>
+    </div>
+    <script>
+
+        var progress = document.getElementById('progress')
+        var progress_wrapper = document.getElementById('progress_wrapper')
+        var progress_status = document.getElementById('progress_status')
+
+        var upload_btn = document.getElementById('upload_btn')
+        var loading_btn = document.getElementById('loading_btn')
+        var cancel_btn = document.getElementById('cancel_btn')
+
+        var alert_wrapper = document.getElementById('alert_wrapper')
+        var input = document.getElementById('file_input')
+        var file_input_label = document.getElementById('file_input_label');
+
+        function show_alert(message , alert)
+        {
+            alert_wrapper.innerHTML = `<div class="alert alert-${alert} alert-dismissible fade show" role="alert">
+                <sapn>${message}</span>
+                <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>`
+        }
+        
+        function input_filename(){
+            file_input_label.innerText = input.files[0].name;
+        }
+
+        function upload(url){
+
+            if (!input.value){
+                show_alert("no file selected" , 'warning');
+                return ;
+            }
+
+            var data = new FormData()
+            var request = new XMLHttpRequest(); 
+             
+            request.responseType = 'json';
+
+            alert_wrapper.innerHTML = "" ;
+
+            input.disabled = true
+
+            upload_btn.classList.add('d-none');
+
+            loading_btn.classList.remove('d-none');
+
+            cancel_btn.classList.remove('d-none')
+
+            progress_wrapper.classList.remove('d-none')
+
+            var file = input.files[0];
+
+            var filename = file.name
+
+            var filesize = file.size 
+
+            document.cooke = `filesize ${filesize}`
+
+
+            data.append('file' , file);
+            tamrin_name = document.getElementById('tamrin_name').value
+            data.append('name' , tamrin_name)
+
+            request.upload.addEventListener('progress' , function(e) {
+
+                var loaded = e.loaded;
+                var total = e.total
+                var percentage_complete = (loaded / total) *100
+
+                progress.setAttribute("style" , `width:${Math.floor(percentage_complete)}%` )
+
+                progress_status.innerText =  `${Math.floor(percentage_complete)} % uploaded`
+
+            })
+
+                request.addEventListener('load' , function(e){
+
+                    
+                        show_alert(`${request.response.message}` , "success");
+                        reset();
+                        
+                  
+                })
+
+                request.addEventListener("error" , function(e){
+                    reset();
+                    show_alert('Eroor uploading ' , "danger")
+                })
+ 
+
+                request.open('post' , url)
+                request.send(data)
+
+                cancel_btn.addEventListener("click" , function(){
+                    request.abort()
+                })
+
+                request.addEventListener('abort' , function(e) 
+                {
+                    reset();
+                    show_alert("upload cancelled" , "primary")
+
+                })
+
+             
+            
+        } //end upload
+
+        function reset(){
+
+            input.value = null;
+            input.disabled = false
+
+            cancel_btn.classList.add('d-none')
+
+            loading_btn.classList.add('d-none')
+
+            upload_btn.classList.remove('d-none')
+
+            progress_wrapper.classList.add('d-none')
+
+            progress.setAttribute("style" , "width: 0%")
+
+            file_input_label.innerText = "Select file"
+            
+
+
+
+        }
+
+
+
+
+
+
+           
+    </script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  </body>
+</html>
