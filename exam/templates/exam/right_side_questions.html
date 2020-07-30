@@ -2,14 +2,14 @@
 
  
               
-                <td style=" text-align: right;">
-                    <div class="list-group">
-                    {% for question in questions %}
-                        <a href="./{{question.id}}" class="list-group-item list-group-item-action" style='font-family:"byekan"'>{{question.name}}</a>
-                        {% comment %} <a href="#" class="list-group-item list-group-item-action disabled">{{question.name}}</a> {% endcomment %}
-                        {% endfor %}
-                      </div>
+<td style=" text-align: right;">
+   <div class="list-group">
+     {% for question in questions %}
+       <a href="./{{question.id}}" class="list-group-item list-group-item-action" style='font-family:"byekan"'>{{question.summery}}</a>
+      {% comment %} <a href="#" class="list-group-item list-group-item-action disabled">{{question.name}}</a> {% endcomment %}
+        {% endfor %}
+         </div>
 
-                </td>
+</td>
                 
             

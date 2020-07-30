@@ -14,6 +14,7 @@
         </div>
         
         <div class="card-body">
+        
             {{this.question}}
           
         </div>
@@ -26,7 +27,7 @@
 
       </div>
       <div >
-   <form>
+   
       <div class="card">
         <div class="card-body">
           <!-- <div class="custom-control custom-radio">
@@ -37,18 +38,18 @@
             <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
             <label class="custom-control-label" for="customRadio2">Or toggle this other custom radio</label>
           </div> -->
-          <div class="form-check">
+        <!-- <div class="form-check">
             <input type="radio" class="form-check-input" id="materialGroupExample1" name="groupOfMaterialRadios">
             <label class="form-check-label" for="materialGroupExample1">{{this.choice_one}}</label>
           </div>
           
-          <!-- Group of material radios - option 2 -->
+          
           <div class="form-check">
             <input type="radio" class="form-check-input" id="materialGroupExample2" name="groupOfMaterialRadios" checked>
             <label class="form-check-label" for="materialGroupExample2">{{this.choice_two}}</label>
           </div>
           
-          <!-- Group of material radios - option 3 -->
+        
           <div class="form-check">
             <input type="radio" class="form-check-input" id="materialGroupExample3" name="groupOfMaterialRadios">
             <label class="form-check-label" for="materialGroupExample3">{{this.choice_three}}</label>
@@ -56,13 +57,175 @@
           <div class="form-check">
             <input type="radio" class="form-check-input" id="materialGroupExample2" name="groupOfMaterialRadios" checked>
             <label class="form-check-label" for="materialGroupExample2">{{this.choice_four}}</label>
-          </div>
+          </div> 
+ -->
 
-          
-          <div class="custom-file" style="align-content: left; text-align: left;">
-            <input type="file" class="custom-file-input" id="customFile">
-            <label class="custom-file-label" for="customFile" style="font-family: 'byekan';">انتخاب فایل</label>
-          </div>
+               <div class="form-group mb-3" >
+                   <div class="custom-file" >
+                       <input type="file" class='custom-image-input' id='file_input' , oninput="input_filename();"  >
+                       <label for="file_input" id='file_input_label' class='custom-file-label' style="font-family:'byekan'" >فایل را انتخاب کنید</label>
+                   </div>
+               </div>
+
+               <button onclick="upload('{{request.url}}')" id='upload_btn' class='btn btn-primary' style="font-family:'byekan'" >فرستادن</button>
+                <button class="btn btn-info d-none" id='loading_btn' type='button' >
+                    <span class='spinner-border spinner-border-sm' role="status" aria-hidden="true" style="font-family:'byekan'" ></span>
+                    در حال فرستادن
+                </button>
+                <button class="btn btn-secondary d-none" id='cancel_btn' type='button'>Cancel</button>
+                </div>
+                <div id="progress_wrapper" class='d-none'>
+                <label for="" id=progress_status>50% uploaded</label>
+                <div class="progress mb-3">
+                    <div class="progress-bar" id='progress' role='progressbar' style='width : 0%'  aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>  
+                </div>
+                <div id='alert_wrapper'></div>
+
+   <script>
+        var num = {{num}}
+
+        var progress = document.getElementById('progress')
+        var progress_wrapper = document.getElementById('progress_wrapper')
+        var progress_status = document.getElementById('progress_status')
+
+        var upload_btn = document.getElementById('upload_btn')
+        var loading_btn = document.getElementById('loading_btn')
+        var cancel_btn = document.getElementById('cancel_btn')
+
+        var alert_wrapper = document.getElementById('alert_wrapper')
+        var input = document.getElementById('file_input')
+        var file_input_label = document.getElementById('file_input_label');
+
+        function show_alert(message , alert)
+        {
+            alert_wrapper.innerHTML = `<div class="alert alert-${alert} alert-dismissible fade show" role="alert">
+                <sapn style="font-family:'byekan'">${message}</span>
+                <strong></strong> 
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true"></span>
+                </button>
+              </div>`
+        }
+        
+        function input_filename(){
+            file_input_label.innerText = input.files[0].name;
+        }
+
+        function upload(url){
+
+            if (!input.value){
+                show_alert("no file selected" , 'warning');
+                return ;
+            }
+
+            var data = new FormData()
+            var request = new XMLHttpRequest(); 
+             
+            request.responseType = 'json';
+
+            alert_wrapper.innerHTML = "" ;
+
+            input.disabled = true
+
+            upload_btn.classList.add('d-none');
+
+            loading_btn.classList.remove('d-none');
+
+            cancel_btn.classList.remove('d-none')
+
+            progress_wrapper.classList.remove('d-none')
+
+            var file = input.files[0];
+
+            var filename = file.name
+            console.log(filename)
+
+            var filesize = file.size 
+
+            document.cooke = `filesize ${filesize}`
+
+
+            data.append('file' , file);
+           
+
+            request.upload.addEventListener('progress' , function(e) {
+
+                var loaded = e.loaded;
+                var total = e.total
+                var percentage_complete = (loaded / total) *100
+
+                progress.setAttribute("style" , `width:${Math.floor(percentage_complete)}%` )
+
+                progress_status.innerText =  `${Math.floor(percentage_complete)} % uploaded`
+
+            })
+
+                request.addEventListener('load' , function(e){
+
+                    
+                        show_alert('آپلود انجام شد' , "success");
+                        reset();
+                     
+                        
+                        
+                  
+                })
+
+                request.addEventListener("error" , function(e){
+                    reset();
+                    show_alert('مشکلی پیش آمده لطفا دوباره بارگذاری کنید' , "danger")
+                })
+ 
+
+                request.open('post' , url)
+                request.send(data)
+
+                cancel_btn.addEventListener("click" , function(){
+                    request.abort()
+                })
+
+                request.addEventListener('abort' , function(e) 
+                {
+                    reset();
+                    show_alert("آپلود انجام نشد" , "warning")
+
+                })
+
+             
+            
+        } //end upload
+
+        function reset(){
+
+            input.value = null;
+            input.disabled = false
+
+            cancel_btn.classList.add('d-none')
+
+            loading_btn.classList.add('d-none')
+
+            upload_btn.classList.remove('d-none')
+
+            progress_wrapper.classList.add('d-none')
+
+            progress.setAttribute("style" , "width: 0%")
+
+            file_input_label.innerText = "Select file"
+            
+
+
+
+        }
+
+
+
+
+
+
+           
+    </script>
+         
           
         </div>
       </div>

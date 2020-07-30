@@ -1,0 +1,78 @@
+{% extends 'teacher_profile/base.html' %}
+{% load jalali_tags %}
+
+ 
+
+
+{% block content %}
+ 
+ <style>
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+      }
+      .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+      }
+      .container {
+        padding: 2px 16px;
+      }
+</style>
+ 
+
+<center>
+
+ <h3 style="font-family: 'byekan'; color:green;"> امتحانات {{dars.name}} </h3>
+
+ <a href = '/teacher/exam/create_new/{{dars.id}}'>
+ <button type="button" class="btn btn-success" style='font-family:"byekan"' >برای ایجاد امتحان جدید کلیک کنید</button></a>
+
+   {% for exam in exams  %}
+   {% if  exam.is_expired %}
+
+
+     <div class="card" text-align='center' align-items= 'center'>
+
+    <div class="container" style='align-items:right'>
+      <h4><b style='font-family:"byekan"'>{{exam.name  }}</b></h4>
+  
+      <a href={{tamrin.file.url}}>
+      <button type="button" class="btn btn-info" style='font-family:"byekan"' >دانلود پاسخ نامه های دنش آموزان</button></a>
+      </div>
+      </div>
+      
+       
+      
+      
+        
+{% elif exam.can_attend %}
+ <div class="card" text-align='center' align-items= 'center'>
+
+    <div class="container" style='align-items:right'>
+      <h4><b style='font-family:"byekan"'>{{exam.name  }}</b></h4>
+  
+      <a href='#'>
+      <button type="button" class="btn btn-Info" style='font-family:"byekan"' > امتحان در حال برگزاری است</button></a>
+      </div>
+      </div>
+
+
+   {% else %}
+
+     <div class="card">
+
+    <div class="container" style='align-items:right'>
+      <h4><b style='font-family:"byekan"'>{{exam.name  }}</b></h4>
+  
+      <a href={{tamrin.file.url}}>
+      <button type="button" class="btn btn-primary" >زمان شروع امتحان <div > روز {{exam.time_starts|to_jalali:'%m/%d  '}}</div><span>ساعت{{exam.time_starts|to_jalali:'%H/%M'}} </span></button></a>
+      </div>
+      </div>
+   {% endif %}
+   {% endfor %}
+
+</center>
+	
+{% endblock content %}
+
+

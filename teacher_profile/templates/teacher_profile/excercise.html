@@ -48,8 +48,14 @@
       
        <p style='font-family:"byekan"'>حداکثر مهلت تحویل تمرین</p>
       <p>{{tamrin.time_expire|to_jalali:'%m/%d  %H:%M'}}</p>
-      <a href='/teacher/excercise/edit/{{tamrin.id}}'>
-      <button type="button" class="btn btn-success" style='font-family:"byekan"' >ویرایش تمرین</button></a>
+
+
+      {% comment %} <a href='/teacher/excercise/edit/{{tamrin.id}}'>
+      <button type="button" class="btn btn-success" style='font-family:"byekan"' >ویرایش تمرین</button></a> {% endcomment %}
+
+
+
+      
       {% comment %} <form method='post'  enctype="multipart/form-data">
 
          {{form.file}}

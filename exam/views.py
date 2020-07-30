@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.utils.safestring import mark_safe
 import json
-from .forms import TestForm , ExamForm , QuestionForm , AnswerForm
+from .forms import TestForm , ExamForm 
 
 
 
@@ -25,24 +25,59 @@ def index(request , template_name = 'exam/index.html'):
 
 
 from .models import Exam
+from klass.models import Student
 from django.shortcuts import get_object_or_404
 from django.utils import timezone
 from .models import Question
+from django.views.decorators.csrf import csrf_protect , csrf_exempt
+
+
+@csrf_exempt
 def attend(request , template_name = 'exam/attend.html' , exam_pk = None  , question_pk = None):
 
     this_exam = get_object_or_404(Exam , id = exam_pk)
 
-    ans = AnswerForm(request.POST or None )
+    if  not this_exam.can_attend:
+        return HttpResponse('time out ')
 
+    questions = Question.objects.filter(exam = this_exam) 
 
-    questions = Question.objects.filter(exam = this_exam)
+    questions_count = questions.count()
 
     this = Question.objects.get(id = question_pk)
-    # check if this exam of this user has this question ,, question must exist in his exam
+
+    user = request.user
+
+    student = get_object_or_404(Student , user = user)
+
     print(this)
 
     time = timezone.now()
-    return render(request , template_name , {'exam' : this_exam , 'questions' : questions , 'this' : this , 'ans' : ans , 'time': time})
+
+    if request.method == 'POST':
+        
+        file = request.FILES['file']
+        user = request.user
+
+
+    
+
+    data = {
+
+        'exam' : this_exam ,
+        'questions' : questions , 
+        'this' : this  ,
+        'time': time,
+        'num' : questions_count,
+        'student' : student
+        
+            }
+
+
+
+
+
+    return render(request , template_name , data)
 
 
 
