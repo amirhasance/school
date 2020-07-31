@@ -5128,3 +5128,210 @@ NameError: name 'TypeError' is not defined
 [Thu Jul 30 16:51:23.902128 2020] [wsgi:error] [pid 68506:tid 140218340005632] [remote 37.148.112.42:20788] AttributeError: 'AnonymousUser' object has no attribute '_meta'
 [Thu Jul 30 16:59:49.959264 2020] [wsgi:error] [pid 68506:tid 140218222507776] [remote 185.39.11.105:42214] Not Found: /config/getuser
 [Thu Jul 30 17:21:36.910856 2020] [wsgi:error] [pid 68506:tid 140218222507776] [remote 37.148.112.42:21820] Not Found: /favicon.ico
+[Thu Jul 30 18:15:24.313503 2020] [wsgi:error] [pid 68506:tid 140218340005632] [remote 37.148.112.42:23524] Not Found: /favicon.ico
+[Thu Jul 30 18:15:30.061973 2020] [wsgi:error] [pid 68506:tid 140218222507776] [remote 37.148.112.42:23539] Internal Server Error: /login/
+[Thu Jul 30 18:15:30.062031 2020] [wsgi:error] [pid 68506:tid 140218222507776] [remote 37.148.112.42:23539] Traceback (most recent call last):
+[Thu Jul 30 18:15:30.062037 2020] [wsgi:error] [pid 68506:tid 140218222507776] [remote 37.148.112.42:23539]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+[Thu Jul 30 18:15:30.062042 2020] [wsgi:error] [pid 68506:tid 140218222507776] [remote 37.148.112.42:23539]     response = get_response(request)
+[Thu Jul 30 18:15:30.062046 2020] [wsgi:error] [pid 68506:tid 140218222507776] [remote 37.148.112.42:23539]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+[Thu Jul 30 18:15:30.062050 2020] [wsgi:error] [pid 68506:tid 140218222507776] [remote 37.148.112.42:23539]     response = self.process_exception_by_middleware(e, request)
+[Thu Jul 30 18:15:30.062055 2020] [wsgi:error] [pid 68506:tid 140218222507776] [remote 37.148.112.42:23539]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+[Thu Jul 30 18:15:30.062059 2020] [wsgi:error] [pid 68506:tid 140218222507776] [remote 37.148.112.42:23539]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Thu Jul 30 18:15:30.062064 2020] [wsgi:error] [pid 68506:tid 140218222507776] [remote 37.148.112.42:23539]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+[Thu Jul 30 18:15:30.062068 2020] [wsgi:error] [pid 68506:tid 140218222507776] [remote 37.148.112.42:23539]     return view_func(*args, **kwargs)
+[Thu Jul 30 18:15:30.062072 2020] [wsgi:error] [pid 68506:tid 140218222507776] [remote 37.148.112.42:23539]   File "/home/amir/school/login/views.py", line 33, in site_login
+[Thu Jul 30 18:15:30.062076 2020] [wsgi:error] [pid 68506:tid 140218222507776] [remote 37.148.112.42:23539]     login(request , user)
+[Thu Jul 30 18:15:30.062080 2020] [wsgi:error] [pid 68506:tid 140218222507776] [remote 37.148.112.42:23539]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/contrib/auth/__init__.py", line 125, in login
+[Thu Jul 30 18:15:30.062084 2020] [wsgi:error] [pid 68506:tid 140218222507776] [remote 37.148.112.42:23539]     request.session[SESSION_KEY] = user._meta.pk.value_to_string(user)
+[Thu Jul 30 18:15:30.062089 2020] [wsgi:error] [pid 68506:tid 140218222507776] [remote 37.148.112.42:23539]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/utils/functional.py", line 225, in inner
+[Thu Jul 30 18:15:30.062093 2020] [wsgi:error] [pid 68506:tid 140218222507776] [remote 37.148.112.42:23539]     return func(self._wrapped, *args)
+[Thu Jul 30 18:15:30.062097 2020] [wsgi:error] [pid 68506:tid 140218222507776] [remote 37.148.112.42:23539] AttributeError: 'AnonymousUser' object has no attribute '_meta'
+[Thu Jul 30 18:40:00.307242 2020] [wsgi:error] [pid 68506:tid 140218340005632] [remote 192.241.236.133:46632] Not Found: /ReportServer
+[Thu Jul 30 20:22:21.210847 2020] [wsgi:error] [pid 68506:tid 140218340005632] [remote 128.14.209.234:58348] Not Found: /webfig/
+[Thu Jul 30 21:47:56.351473 2020] [wsgi:error] [pid 68506:tid 140218340005632] [remote 37.49.230.56:38076] Not Found: /telephony-service.html
+[Thu Jul 30 23:44:31.652617 2020] [wsgi:error] [pid 68506:tid 140218340005632] [remote 117.239.149.94:64429] Not Found: /manager/html
+[Fri Jul 31 03:05:24.361392 2020] [wsgi:error] [pid 68506:tid 140218222507776] [remote 104.244.78.107:44614] Forbidden (CSRF cookie not set.): /
+[Fri Jul 31 04:12:58.596201 2020] [wsgi:error] [pid 68506:tid 140218340005632] [remote 185.250.220.170:60630] Not Found: /robots.txt
+Exception ignored in: <function BaseEventLoop.__del__ at 0x7f8713aae700>
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/asyncio/base_events.py", line 654, in __del__
+NameError: name 'ResourceWarning' is not defined
+Exception ignored in: <function Local.__del__ at 0x7f8718a4a550>
+Traceback (most recent call last):
+  File "/home/amir/school/venv/lib/python3.8/site-packages/asgiref/local.py", line 96, in __del__
+NameError: name 'TypeError' is not defined
+Exception ignored in: <function Local.__del__ at 0x7f8718a4a550>
+Traceback (most recent call last):
+  File "/home/amir/school/venv/lib/python3.8/site-packages/asgiref/local.py", line 96, in __del__
+NameError: name 'TypeError' is not defined
+Exception ignored in: <function Local.__del__ at 0x7f8718a4a550>
+Traceback (most recent call last):
+  File "/home/amir/school/venv/lib/python3.8/site-packages/asgiref/local.py", line 96, in __del__
+NameError: name 'TypeError' is not defined
+[Fri Jul 31 05:30:37.946633 2020] [wsgi:error] [pid 77135:tid 140218323220224] [remote 80.250.158.35:47427] Not Found: /phpmyadmin/
+[Fri Jul 31 07:57:16.299161 2020] [wsgi:error] [pid 77135:tid 140218340005632] [remote 43.247.69.19:57398] Not Found: /TP/public/index.php
+[Fri Jul 31 07:57:16.727367 2020] [wsgi:error] [pid 77135:tid 140218323220224] [remote 43.247.69.19:56946] Not Found: /TP/index.php
+[Fri Jul 31 07:57:17.179319 2020] [wsgi:error] [pid 77135:tid 140218340005632] [remote 43.247.69.19:60150] Not Found: /thinkphp/html/public/index.php
+[Fri Jul 31 07:57:17.643644 2020] [wsgi:error] [pid 77135:tid 140218323220224] [remote 43.247.69.19:59878] Not Found: /html/public/index.php
+[Fri Jul 31 07:57:18.084890 2020] [wsgi:error] [pid 77135:tid 140218340005632] [remote 43.247.69.19:34966] Not Found: /public/index.php
+[Fri Jul 31 07:57:18.562162 2020] [wsgi:error] [pid 77135:tid 140218323220224] [remote 43.247.69.19:34652] Not Found: /TP/html/public/index.php
+[Fri Jul 31 07:57:19.011692 2020] [wsgi:error] [pid 77135:tid 140218340005632] [remote 43.247.69.19:38176] Not Found: /elrekt.php
+[Fri Jul 31 07:57:19.419528 2020] [wsgi:error] [pid 77135:tid 140218323220224] [remote 43.247.69.19:53600] Not Found: /index.php
+[Fri Jul 31 08:06:21.590871 2020] [wsgi:error] [pid 77135:tid 140218340005632] [remote 52.255.202.36:59308] Forbidden (CSRF cookie not set.): /
+[Fri Jul 31 09:55:49.292286 2020] [wsgi:error] [pid 77135:tid 140218323220224] [remote 91.199.118.137:21597] Not Found: /1
+[Fri Jul 31 09:55:49.378479 2020] [wsgi:error] [pid 77135:tid 140218340005632] [remote 91.199.118.137:6508] Not Found: /1
+[Fri Jul 31 09:55:51.399093 2020] [wsgi:error] [pid 77135:tid 140218323220224] [remote 91.199.118.137:33752] Not Found: /1
+[Fri Jul 31 10:50:42.454577 2020] [wsgi:error] [pid 77135:tid 140218340005632] [remote 185.221.134.234:62160] Not Found: /robots.txt
+[Fri Jul 31 11:00:56.952292 2020] [wsgi:error] [pid 77135:tid 140218340005632] [remote 87.98.154.134:50304] Not Found: /qRd6
+[Fri Jul 31 11:13:24.392461 2020] [wsgi:error] [pid 77135:tid 140218323220224] [remote 49.143.32.6:2591] Not Found: /shell
+[Fri Jul 31 12:00:14.678698 2020] [wsgi:error] [pid 77135:tid 140218340005632] [remote 37.59.167.24:44478] Not Found: /teacher/files/favorite.ico
+[Fri Jul 31 12:00:26.290268 2020] [wsgi:error] [pid 77135:tid 140218340005632] [remote 37.59.167.24:44520] Not Found: /favicon.ico
+[Fri Jul 31 12:00:44.951073 2020] [wsgi:error] [pid 77135:tid 140218340005632] [remote 37.59.167.24:44534] Not Found: /teacher/favorite.ico
+Exception ignored in: <function BaseEventLoop.__del__ at 0x7f8713aaf700>
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/asyncio/base_events.py", line 654, in __del__
+NameError: name 'ResourceWarning' is not defined
+Exception ignored in: <function Local.__del__ at 0x7f8718a4a550>
+Traceback (most recent call last):
+  File "/home/amir/school/venv/lib/python3.8/site-packages/asgiref/local.py", line 96, in __del__
+NameError: name 'TypeError' is not defined
+Exception ignored in: <function Local.__del__ at 0x7f8718a4a550>
+Traceback (most recent call last):
+  File "/home/amir/school/venv/lib/python3.8/site-packages/asgiref/local.py", line 96, in __del__
+NameError: name 'TypeError' is not defined
+Exception ignored in: <function Local.__del__ at 0x7f8710ec1a60>
+Traceback (most recent call last):
+  File "/home/amir/school/venv/lib/python3.8/site-packages/asgiref/local.py", line 96, in __del__
+NameError: name 'TypeError' is not defined
+Exception ignored in: <function Local.__del__ at 0x7f8710ec1a60>
+Traceback (most recent call last):
+  File "/home/amir/school/venv/lib/python3.8/site-packages/asgiref/local.py", line 96, in __del__
+NameError: name 'TypeError' is not defined
+[Fri Jul 31 15:30:19.704541 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 118.250.48.136:52318] Not Found: /GponForm/diag_Form
+[Fri Jul 31 17:06:09.585292 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 122.51.192.250:53236] Not Found: /TP/public/index.php
+[Fri Jul 31 17:06:10.093336 2020] [wsgi:error] [pid 648:tid 139674272831232] [remote 122.51.192.250:53848] Not Found: /TP/index.php
+[Fri Jul 31 17:06:10.616993 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 122.51.192.250:54474] Not Found: /thinkphp/html/public/index.php
+[Fri Jul 31 17:06:11.139766 2020] [wsgi:error] [pid 648:tid 139674272831232] [remote 122.51.192.250:55086] Not Found: /html/public/index.php
+[Fri Jul 31 17:06:11.962624 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 122.51.192.250:56294] Not Found: /public/index.php
+[Fri Jul 31 17:06:12.493442 2020] [wsgi:error] [pid 648:tid 139674272831232] [remote 122.51.192.250:56902] Not Found: /TP/html/public/index.php
+[Fri Jul 31 17:06:15.020817 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 122.51.192.250:57510] Not Found: /elrekt.php
+[Fri Jul 31 17:06:16.481646 2020] [wsgi:error] [pid 648:tid 139674272831232] [remote 122.51.192.250:33140] Not Found: /index.php
+[Fri Jul 31 19:46:55.200179 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.59.167.24:39400] Not Found: /favicon.ico
+[Fri Jul 31 19:47:07.757340 2020] [wsgi:error] [pid 648:tid 139674272831232] [remote 37.59.167.24:39402] Internal Server Error: /profile/my/
+[Fri Jul 31 19:47:07.757377 2020] [wsgi:error] [pid 648:tid 139674272831232] [remote 37.59.167.24:39402] Traceback (most recent call last):
+[Fri Jul 31 19:47:07.757383 2020] [wsgi:error] [pid 648:tid 139674272831232] [remote 37.59.167.24:39402]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+[Fri Jul 31 19:47:07.757387 2020] [wsgi:error] [pid 648:tid 139674272831232] [remote 37.59.167.24:39402]     response = get_response(request)
+[Fri Jul 31 19:47:07.757392 2020] [wsgi:error] [pid 648:tid 139674272831232] [remote 37.59.167.24:39402]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+[Fri Jul 31 19:47:07.757396 2020] [wsgi:error] [pid 648:tid 139674272831232] [remote 37.59.167.24:39402]     response = self.process_exception_by_middleware(e, request)
+[Fri Jul 31 19:47:07.757400 2020] [wsgi:error] [pid 648:tid 139674272831232] [remote 37.59.167.24:39402]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+[Fri Jul 31 19:47:07.757405 2020] [wsgi:error] [pid 648:tid 139674272831232] [remote 37.59.167.24:39402]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Fri Jul 31 19:47:07.757409 2020] [wsgi:error] [pid 648:tid 139674272831232] [remote 37.59.167.24:39402]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+[Fri Jul 31 19:47:07.757414 2020] [wsgi:error] [pid 648:tid 139674272831232] [remote 37.59.167.24:39402]     return view_func(request, *args, **kwargs)
+[Fri Jul 31 19:47:07.757436 2020] [wsgi:error] [pid 648:tid 139674272831232] [remote 37.59.167.24:39402]   File "/home/amir/school/my_profile/views.py", line 18, in my
+[Fri Jul 31 19:47:07.757440 2020] [wsgi:error] [pid 648:tid 139674272831232] [remote 37.59.167.24:39402]     student = Student.objects.get(user = request.user)
+[Fri Jul 31 19:47:07.757443 2020] [wsgi:error] [pid 648:tid 139674272831232] [remote 37.59.167.24:39402]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+[Fri Jul 31 19:47:07.757447 2020] [wsgi:error] [pid 648:tid 139674272831232] [remote 37.59.167.24:39402]     return getattr(self.get_queryset(), name)(*args, **kwargs)
+[Fri Jul 31 19:47:07.757450 2020] [wsgi:error] [pid 648:tid 139674272831232] [remote 37.59.167.24:39402]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/db/models/query.py", line 415, in get
+[Fri Jul 31 19:47:07.757454 2020] [wsgi:error] [pid 648:tid 139674272831232] [remote 37.59.167.24:39402]     raise self.model.DoesNotExist(
+[Fri Jul 31 19:47:07.757457 2020] [wsgi:error] [pid 648:tid 139674272831232] [remote 37.59.167.24:39402] klass.models.Student.DoesNotExist: Student matching query does not exist.
+[Fri Jul 31 19:47:12.665665 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.59.167.24:39404] Internal Server Error: /teacher/
+[Fri Jul 31 19:47:12.665709 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.59.167.24:39404] Traceback (most recent call last):
+[Fri Jul 31 19:47:12.665713 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.59.167.24:39404]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+[Fri Jul 31 19:47:12.665717 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.59.167.24:39404]     response = get_response(request)
+[Fri Jul 31 19:47:12.665721 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.59.167.24:39404]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+[Fri Jul 31 19:47:12.665725 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.59.167.24:39404]     response = self.process_exception_by_middleware(e, request)
+[Fri Jul 31 19:47:12.665728 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.59.167.24:39404]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+[Fri Jul 31 19:47:12.665732 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.59.167.24:39404]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Fri Jul 31 19:47:12.665736 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.59.167.24:39404]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+[Fri Jul 31 19:47:12.665739 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.59.167.24:39404]     return view_func(request, *args, **kwargs)
+[Fri Jul 31 19:47:12.665743 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.59.167.24:39404]   File "/home/amir/school/teacher_profile/views.py", line 22, in teacher_home
+[Fri Jul 31 19:47:12.665746 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.59.167.24:39404]     teacher = user.teacher
+[Fri Jul 31 19:47:12.665750 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.59.167.24:39404]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/utils/functional.py", line 225, in inner
+[Fri Jul 31 19:47:12.665753 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.59.167.24:39404]     return func(self._wrapped, *args)
+[Fri Jul 31 19:47:12.665757 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.59.167.24:39404]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/db/models/fields/related_descriptors.py", line 420, in __get__
+[Fri Jul 31 19:47:12.665761 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.59.167.24:39404]     raise self.RelatedObjectDoesNotExist(
+[Fri Jul 31 19:47:12.665781 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.59.167.24:39404] django.contrib.auth.models.User.teacher.RelatedObjectDoesNotExist: User has no teacher.
+[Fri Jul 31 19:47:42.850915 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.59.167.24:39462] Not Found: /teacher/favorite.ico
+[Fri Jul 31 19:47:47.863226 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.59.167.24:39468] Not Found: /teacher/excercise/favorite.ico
+[Fri Jul 31 19:47:59.726102 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.59.167.24:39480] Not Found: /teacher/tamrin_answers/favorite.ico
+[Fri Jul 31 19:48:19.007488 2020] [wsgi:error] [pid 648:tid 139674272831232] [remote 37.59.167.24:39490] Not Found: /teacher/files/favorite.ico
+[Fri Jul 31 19:48:27.266577 2020] [wsgi:error] [pid 648:tid 139674272831232] [remote 37.59.167.24:39500] Not Found: /teacher/exam/favorite.ico
+[Fri Jul 31 19:48:28.924658 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.59.167.24:39470] Not Found: /teacher/exam/files/1
+[Fri Jul 31 19:49:29.507628 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.59.167.24:39536] Internal Server Error: /exam/create/1
+[Fri Jul 31 19:49:29.507694 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.59.167.24:39536] Traceback (most recent call last):
+[Fri Jul 31 19:49:29.507701 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.59.167.24:39536]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+[Fri Jul 31 19:49:29.507707 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.59.167.24:39536]     response = get_response(request)
+[Fri Jul 31 19:49:29.507712 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.59.167.24:39536]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+[Fri Jul 31 19:49:29.507717 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.59.167.24:39536]     response = self.process_exception_by_middleware(e, request)
+[Fri Jul 31 19:49:29.507723 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.59.167.24:39536]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+[Fri Jul 31 19:49:29.507728 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.59.167.24:39536]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Fri Jul 31 19:49:29.507734 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.59.167.24:39536]   File "/home/amir/school/exam/views.py", line 29, in index
+[Fri Jul 31 19:49:29.507739 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.59.167.24:39536]     return HttpResponse('Exam not  Created')
+[Fri Jul 31 19:49:29.507744 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.59.167.24:39536] UnboundLocalError: local variable 'HttpResponse' referenced before assignment
+[Fri Jul 31 19:51:21.326575 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.59.167.24:39574] Forbidden (CSRF token missing or incorrect.): /teacher/exam/addq/4
+[Fri Jul 31 20:03:38.793720 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.59.167.24:40316] Not Found: /teacher/favorite.ico
+[Fri Jul 31 20:04:05.307425 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.59.167.24:40318] Not Found: /teacher/files/favorite.ico
+[Fri Jul 31 20:04:18.853032 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.59.167.24:40320] Not Found: /teacher/exam/favorite.ico
+[Fri Jul 31 20:04:21.160539 2020] [wsgi:error] [pid 648:tid 139674272831232] [remote 37.59.167.24:40320] Not Found: /teacher/exam/files/1
+[Fri Jul 31 20:04:24.540050 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.59.167.24:40320] Not Found: /favicon.ico
+[Fri Jul 31 20:04:27.895354 2020] [wsgi:error] [pid 648:tid 139674272831232] [remote 37.59.167.24:40322] Not Found: /teacher/exam/files/1
+[Fri Jul 31 20:04:28.293311 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.59.167.24:40322] Not Found: /favicon.ico
+[Fri Jul 31 20:07:04.424147 2020] [wsgi:error] [pid 648:tid 139674272831232] [remote 37.59.167.24:42110] Not Found: /teacher/favorite.ico
+[Fri Jul 31 20:59:54.549250 2020] [wsgi:error] [pid 648:tid 139674272831232] [remote 37.148.112.42:15554] Not Found: /teacher/favorite.ico
+[Fri Jul 31 21:00:09.622591 2020] [wsgi:error] [pid 648:tid 139674272831232] [remote 37.148.112.42:15553] Not Found: /teacher/excercise/favorite.ico
+[Fri Jul 31 21:00:18.878354 2020] [wsgi:error] [pid 648:tid 139674272831232] [remote 37.148.112.42:15571] Not Found: /teacher/tamrin_answers/favorite.ico
+[Fri Jul 31 21:00:57.589391 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.148.112.42:15573] Not Found: /teacher/exam/favorite.ico
+[Fri Jul 31 21:01:01.144041 2020] [wsgi:error] [pid 648:tid 139674272831232] [remote 37.148.112.42:15573] Not Found: /teacher/exam/files/3
+[Fri Jul 31 21:01:01.497007 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.148.112.42:15573] Not Found: /favicon.ico
+[Fri Jul 31 21:01:05.212889 2020] [wsgi:error] [pid 648:tid 139674272831232] [remote 37.148.112.42:15573] Not Found: /teacher/exam/files/1
+[Fri Jul 31 21:03:10.866949 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 185.221.134.234:49494] Not Found: /robots.txt
+[Fri Jul 31 21:11:43.367527 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.148.112.42:15678] Not Found: /favicon.ico
+[Fri Jul 31 21:12:01.991125 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.148.112.42:15694] Not Found: /profile/my/favorite.ico
+[Fri Jul 31 21:12:08.188715 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.148.112.42:15699] Not Found: /profile/my_files/favorite.ico
+[Fri Jul 31 21:12:10.680775 2020] [wsgi:error] [pid 648:tid 139674272831232] [remote 37.148.112.42:15699] Not Found: /favicon.ico
+[Fri Jul 31 21:12:16.874976 2020] [wsgi:error] [pid 648:tid 139674272831232] [remote 37.148.112.42:15704] Not Found: /profile/excercise/favorite.ico
+[Fri Jul 31 16:43:20.580065 2020] [wsgi:error] [pid 649:tid 139674140010240] [client 37.148.112.42:15713] mod_wsgi (pid=649): Request data read error when proxying data to daemon process: Partial results are valid but processing is incomplete., referer: http://sadatmand.ir/profile/excercise/1
+[Fri Jul 31 21:13:20.703688 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.148.112.42:15713] Internal Server Error: /profile/excercise/1
+[Fri Jul 31 21:13:20.703713 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.148.112.42:15713] Traceback (most recent call last):
+[Fri Jul 31 21:13:20.703718 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.148.112.42:15713]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/http/request.py", line 355, in read
+[Fri Jul 31 21:13:20.703723 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.148.112.42:15713]     return self._stream.read(*args, **kwargs)
+[Fri Jul 31 21:13:20.703727 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.148.112.42:15713]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/core/handlers/wsgi.py", line 40, in read
+[Fri Jul 31 21:13:20.703732 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.148.112.42:15713]     result = self.buffer + self._read_limited(size - len(self.buffer))
+[Fri Jul 31 21:13:20.703736 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.148.112.42:15713]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/core/handlers/wsgi.py", line 28, in _read_limited
+[Fri Jul 31 21:13:20.703740 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.148.112.42:15713]     result = self.stream.read(size)
+[Fri Jul 31 21:13:20.703744 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.148.112.42:15713] OSError: Apache/mod_wsgi request data read error: Partial results are valid but processing is incomplete.
+[Fri Jul 31 21:13:20.703749 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.148.112.42:15713] 
+[Fri Jul 31 21:13:20.703752 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.148.112.42:15713] The above exception was the direct cause of the following exception:
+[Fri Jul 31 21:13:20.703773 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.148.112.42:15713] 
+[Fri Jul 31 21:13:20.703777 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.148.112.42:15713] Traceback (most recent call last):
+[Fri Jul 31 21:13:20.703780 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.148.112.42:15713]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+[Fri Jul 31 21:13:20.703783 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.148.112.42:15713]     response = get_response(request)
+[Fri Jul 31 21:13:20.703787 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.148.112.42:15713]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+[Fri Jul 31 21:13:20.703790 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.148.112.42:15713]     response = self.process_exception_by_middleware(e, request)
+[Fri Jul 31 21:13:20.703793 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.148.112.42:15713]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+[Fri Jul 31 21:13:20.703797 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.148.112.42:15713]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Fri Jul 31 21:13:20.703800 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.148.112.42:15713]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+[Fri Jul 31 21:13:20.703804 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.148.112.42:15713]     return view_func(*args, **kwargs)
+[Fri Jul 31 21:13:20.703807 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.148.112.42:15713]   File "/home/amir/school/my_profile/views.py", line 56, in exercise
+[Fri Jul 31 21:13:20.703810 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.148.112.42:15713]     form = Tamrin_Form(request.POST or None  , request.FILES or None )
+[Fri Jul 31 21:13:20.703814 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.148.112.42:15713]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/core/handlers/wsgi.py", line 102, in _get_post
+[Fri Jul 31 21:13:20.703817 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.148.112.42:15713]     self._load_post_and_files()
+[Fri Jul 31 21:13:20.703820 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.148.112.42:15713]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/http/request.py", line 326, in _load_post_and_files
+[Fri Jul 31 21:13:20.703824 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.148.112.42:15713]     self._post, self._files = self.parse_file_upload(self.META, data)
+[Fri Jul 31 21:13:20.703827 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.148.112.42:15713]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/http/request.py", line 286, in parse_file_upload
+[Fri Jul 31 21:13:20.703831 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.148.112.42:15713]     return parser.parse()
+[Fri Jul 31 21:13:20.703834 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.148.112.42:15713]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/http/multipartparser.py", line 236, in parse
+[Fri Jul 31 21:13:20.703837 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.148.112.42:15713]     for chunk in field_stream:
+[Fri Jul 31 21:13:20.703840 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.148.112.42:15713]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/http/multipartparser.py", line 376, in __next__
+[Fri Jul 31 21:13:20.703844 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.148.112.42:15713]     output = next(self._producer)
+[Fri Jul 31 21:13:20.703847 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.148.112.42:15713]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/http/multipartparser.py", line 508, in __next__
+[Fri Jul 31 21:13:20.703855 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.148.112.42:15713]     for bytes in stream:
+[Fri Jul 31 21:13:20.703858 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.148.112.42:15713]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/http/multipartparser.py", line 376, in __next__
+[Fri Jul 31 21:13:20.703861 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.148.112.42:15713]     output = next(self._producer)
+[Fri Jul 31 21:13:20.703865 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.148.112.42:15713]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/http/multipartparser.py", line 439, in __next__
+[Fri Jul 31 21:13:20.703868 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.148.112.42:15713]     data = self.flo.read(self.chunk_size)
+[Fri Jul 31 21:13:20.703871 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.148.112.42:15713]   File "/home/amir/school/venv/lib/python3.8/site-packages/django/http/request.py", line 357, in read
+[Fri Jul 31 21:13:20.703875 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.148.112.42:15713]     raise UnreadablePostError(*e.args) from e
+[Fri Jul 31 21:13:20.703878 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.148.112.42:15713] django.http.request.UnreadablePostError: Apache/mod_wsgi request data read error: Partial results are valid but processing is incomplete.
+[Fri Jul 31 21:13:23.599989 2020] [wsgi:error] [pid 648:tid 139674163726080] [remote 37.148.112.42:15729] Not Found: /profile/excercise/index2.php
+[Fri Jul 31 21:13:28.992196 2020] [wsgi:error] [pid 648:tid 139674155333376] [remote 37.148.112.42:15736] Not Found: /profile/excercise/index2.php

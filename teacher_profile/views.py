@@ -9,7 +9,7 @@ from django.views.decorators.csrf import csrf_protect , csrf_exempt
 from .forms import Create_Tamrin_Form , File_teacher_form
 from django.shortcuts import get_object_or_404 , redirect
 from my_profile.models import Answer_of_Tamrin_for_every_student
-from exam.models import Exam
+from exam.models import Exam , Question , WQuestion
 
 
 # Create your views here.
@@ -247,3 +247,27 @@ def exam (request , template_name='teacher_profile/exam.html' , pk=None):
     return render(request , template_name , data)
     
 
+
+
+def create_exam(request , template_name = 'teacher_profile/exam_create_new.html' , pk = None):
+
+    user = request.user 
+    teacher = get_object_or_404(Teacher , user = user)
+    exam = get_object_or_404(Exam , id = pk   ) 
+    dars = exam.dars
+    qs = Question.objects.filter(exam = exam)
+    wqs = WQuestion.objects.filter(exam = exam)
+
+
+
+
+
+    data = {
+        'exam' : exam ,
+        'dars'  : dars , 
+        'qs' : qs,
+        'wqs' : wqs,
+        
+    }
+
+    return render (request  , template_name , data)

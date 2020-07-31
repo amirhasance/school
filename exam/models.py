@@ -89,6 +89,9 @@ class WQuestion(models.Model):
     def __str__(self):
         return self.question
     
+    def summery(self):
+        return '...' + self.question[:20] 
+    
     
 
     

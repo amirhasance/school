@@ -15,7 +15,19 @@
 
 <form method="post">
 {% csrf_token %}
-    {{ form.as_p}}
+
+{{form.name}}
+<label for="name">Enter name </label>
+<hr>
+
+<label for="time_starts">Time Starts</label>
+{{form.time_starts}}
+
+<hr>
+
+<label for="time_ends"> Time ends</label>
+{{form.time_ends}}
+
     <button type="submit" class="btn btn-primary mb-2">Confirm identity</button>
 </form>
 

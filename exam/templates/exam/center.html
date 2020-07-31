@@ -145,10 +145,8 @@
 
             document.cooke = `filesize ${filesize}`
 
-
             data.append('file' , file);
            
-
             request.upload.addEventListener('progress' , function(e) {
 
                 var loaded = e.loaded;
@@ -166,8 +164,7 @@
                     
                         show_alert('آپلود انجام شد' , "success");
                         reset();
-                     
-                        
+                           
                         
                   
                 })
@@ -191,8 +188,6 @@
                     show_alert("آپلود انجام نشد" , "warning")
 
                 })
-
-             
             
         } //end upload
 
@@ -213,17 +208,8 @@
 
             file_input_label.innerText = "Select file"
             
-
-
-
         }
-
-
-
-
-
-
-           
+          
     </script>
          
           

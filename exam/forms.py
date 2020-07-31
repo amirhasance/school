@@ -29,7 +29,7 @@ class TestForm(forms.ModelForm):
 class ExamForm(forms.ModelForm):
     class Meta:
         model = Exam
-        fields = ('name' ,  'time_starts' , 'time_ends' , 'dars')
+        fields = ( 'time_starts' , 'time_ends' , 'name')
 
 
     def __init__(self, *args, **kwargs):

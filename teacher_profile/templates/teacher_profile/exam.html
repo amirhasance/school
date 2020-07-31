@@ -24,7 +24,7 @@
 
  <h3 style="font-family: 'byekan'; color:green;"> امتحانات {{dars.name}} </h3>
 
- <a href = '/teacher/exam/create_new/{{dars.id}}'>
+ <a href = '/exam/create/{{dars.id}}'>
  <button type="button" class="btn btn-success" style='font-family:"byekan"' >برای ایجاد امتحان جدید کلیک کنید</button></a>
 
    {% for exam in exams  %}
@@ -36,7 +36,7 @@
     <div class="container" style='align-items:right'>
       <h4><b style='font-family:"byekan"'>{{exam.name  }}</b></h4>
   
-      <a href={{tamrin.file.url}}>
+      <a href='/teacher/exam/files/{{exam.id}}'>
       <button type="button" class="btn btn-info" style='font-family:"byekan"' >دانلود پاسخ نامه های دنش آموزان</button></a>
       </div>
       </div>
@@ -64,7 +64,7 @@
     <div class="container" style='align-items:right'>
       <h4><b style='font-family:"byekan"'>{{exam.name  }}</b></h4>
   
-      <a href={{tamrin.file.url}}>
+      <a href='#'>
       <button type="button" class="btn btn-primary" >زمان شروع امتحان <div > روز {{exam.time_starts|to_jalali:'%m/%d  '}}</div><span>ساعت{{exam.time_starts|to_jalali:'%H/%M'}} </span></button></a>
       </div>
       </div>
