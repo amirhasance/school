@@ -10,7 +10,6 @@ from django.views.decorators.csrf import csrf_protect , csrf_exempt
 from django.http import JsonResponse
 
 def index(request , template_name = 'exam/index.html' , pk = None):
-
     form = ExamForm(request.POST or None)
     user = request.user
     teacher = get_object_or_404(Teacher , user = user)
@@ -41,6 +40,7 @@ def attend(request , template_name = 'exam/attend.html' , exam_pk = None  , ques
         return HttpResponse('time out ')
 
     questions = Question.objects.filter(exam = this_exam) 
+
     wquestions = WQuestion.objects.filter(exam = this_exam)
 
     questions_count = questions.count()
@@ -60,8 +60,6 @@ def attend(request , template_name = 'exam/attend.html' , exam_pk = None  , ques
         file = request.FILES['file']
         user = request.user
 
- 
-
     data = {
 
         'exam' : this_exam ,
@@ -72,7 +70,7 @@ def attend(request , template_name = 'exam/attend.html' , exam_pk = None  , ques
         'num' : questions_count,
         'student' : student ,
 
-        
+  
             }
 
     return render(request , template_name , data)
@@ -85,7 +83,6 @@ def addq(request , template_name='exam/addq.html' , pk=None):
     teacher = get_object_or_404(Teacher , user = user)
     exam = get_object_or_404(Exam , id = pk)
 
-
     if request.method == "POST":
         file = request.FILES['file']
         post_data = request.POST
@@ -97,9 +94,7 @@ def addq(request , template_name='exam/addq.html' , pk=None):
         correct_ans = post_data['correct_ans']
        
         Question.objects.create(exam  = exam , image = file , question = question , choice_four = choice_four , choice_one = choice_one , choice_two = choice_two , choice_three = choice_three , correct_ans = correct_ans)
-        return JsonResponse({'message' : 'ok' } , status = 200)
-
-        
+        return JsonResponse({'message' : 'ok' } , status = 200)     
     
 
     data ={
@@ -108,19 +103,14 @@ def addq(request , template_name='exam/addq.html' , pk=None):
     }
 
     return render(request , template_name , data)
-    
-
-    
 
 
 
 @csrf_exempt
 def addwq(request , template_name='exam/addwq.html' , pk=None):
-
     user = request.user
     teacher = get_object_or_404(Teacher , user = user)
     exam = get_object_or_404(Exam , id = pk)
-
 
     if request.method == "POST":
         file = request.FILES['file']
@@ -129,30 +119,31 @@ def addwq(request , template_name='exam/addwq.html' , pk=None):
         WQuestion.objects.create(exam = exam , image = file  , question = question )
         return JsonResponse({'message' : 'ok' } , status = 200)
 
-    
-
     data ={
     'exam' : exam ,
-
-
     }
 
     return render(request , template_name , data)
+
+
+
+
+
+
+
+
+
+def start_exam(request , exam_pk = None):
+
+    exam = get_object_or_404(Exam , id = exam_pk)
+
+    if Question.objects.filter(exam  = exam ).exists():
+         first = Question.objects.filter(exam=exam).first()
+    else :
+        first = WQuestion.objects.filter(exam =exam).first()
+
+    return redirect(f'/exam/attend/{exam_pk}/{first.id}')
     
-
-    pass
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

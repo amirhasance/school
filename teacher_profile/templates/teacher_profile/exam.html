@@ -66,6 +66,12 @@
   
       <a href='#'>
       <button type="button" class="btn btn-primary" >زمان شروع امتحان <div > روز {{exam.time_starts|to_jalali:'%m/%d  '}}</div><span>ساعت{{exam.time_starts|to_jalali:'%H/%M'}} </span></button></a>
+
+       <br > 
+       <br > 
+      <a href='/teacher/exam/create_new/{{exam.id}}'>
+      <button type="button" class="btn btn-Info" style='font-family:"byekan"' > ویرایش سوالات</button></a>
+
       </div>
       </div>
    {% endif %}

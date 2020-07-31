@@ -4,6 +4,7 @@ from . import views
 from exam.views import addq , addwq
 urlpatterns = [
     path('' , views.teacher_home , name='teacher_home' ),
+     path('files/delete/<int:darspk>/<int:filepk>' , views.delete_file),
     path('files/<int:pk>' , views.files , name='files'),
     path('files/create_new/<int:pk>' , views.files_create_new , name='creat-new-file'),
     path('excercise/<int:pk>' , views.excercise , name='exercise'),
@@ -14,5 +15,6 @@ urlpatterns = [
     path('exam/create_new/<int:pk>' , views.create_exam ),
     path('exam/addq/<int:pk>' , addq ),
     path('exam/addwq/<int:pk>' , addwq ),
+   
     
 ]

@@ -74,7 +74,7 @@ class Tamrin(models.Model):
         return self.name
 
     class Meta:
-        ordering = ('-time_expire',)
+        ordering = ('time_expire',)
         verbose_name_plural = 'تمارین   '
 
     def is_expired(self):

@@ -32,12 +32,12 @@
       <h4><b style='font-family:"byekan"'>{{file.name  }}</b></h4>
   
       <a href={{file.file.url}}>
-      <button type="button" class="btn btn-info" style='font-family:"byekan"' >دانلود</button></a>
+      <button type="button" class="btn btn-primary" style='font-family:"byekan"' >دانلود</button></a>
       
      
       
-      <a href='/teacher/files/edit/{{file.id}}'>
-      <button type="button" class="btn btn-success" style='font-family:"byekan"' >ویرایش </button></a>
+      <a href='/teacher/files/delete/{{dars.id}}/{{file.id}}'>
+      <button type="button" class="btn btn-danger" style='font-family:"byekan"' >حذف </button></a>
      
     </div>
   </div>

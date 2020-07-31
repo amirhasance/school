@@ -271,3 +271,13 @@ def create_exam(request , template_name = 'teacher_profile/exam_create_new.html'
     }
 
     return render (request  , template_name , data)
+
+
+def delete_file(request , darspk = None , filepk = None):
+
+    file = get_object_or_404(File_teacher , id = filepk)
+
+    file.delete()
+
+    return redirect(f'/teacher/files/{darspk}')
+

@@ -128,5 +128,25 @@ def form_html(request , template_name= 'my_profile/form.html'):
     return render(request , template_name , data)
 
 
+from exam.models import Exam
 
+def exams(request , template_name= 'my_profile/exams.html' , pk = None):
+    student = Student.objects.get(user = request.user)
+    dars = get_object_or_404(Dars , id = pk)
+    doroos = Dars.objects.filter(students = student)
+    
+    exams = Exam.objects.filter(dars = dars )
+    
+    context = {
+        "doroos" : doroos,
+        "student" : student,
+        'pk' : pk,
+        'exams' : exams,
+        'dars' : dars,
+    }
+    
+
+    return render(request, template_name , context)
+
+    
 
