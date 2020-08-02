@@ -1,4 +1,4 @@
-function today(){
+function Amirtoday(){
 week = new Array("يكشنبه", "دوشنبه", "سه شنبه", "چهارشنبه", "پنج شنبه", "جمعه", "شنبه")
 months = new Array("فروردين", "ارديبهشت", "خرداد", "تير", "مرداد", "شهريور", "مهر", "آبان", "آذر", "دي", "بهمن", "اسفند");
 a = new Date();
@@ -41,6 +41,7 @@ switch (month) {
   default:
     break;
 }
-
+console.log(day)
+console.log(year)
 
 }

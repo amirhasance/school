@@ -1,3 +1,5 @@
+
+{%load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,5 +63,10 @@ $(".custom-file-input").on("change", function() {
   var fileName = $(this).val().split("\\").pop();
   $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
 });
+</script>
+<script src={% static 'exam/today.js' %}>
+
+var server_date = {{exam.time_ends}}
+
 </script>
 </html>
